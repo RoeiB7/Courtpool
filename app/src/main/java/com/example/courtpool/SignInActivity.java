@@ -1,21 +1,28 @@
 package com.example.courtpool;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class SignInActivity extends AppCompatActivity {
 
     private AppManager manager;
     private EditText password;
     private boolean eye = false;
+    private boolean crossEye = false;
+    private final int DRAWABLE_RIGHT = 2;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -27,7 +34,16 @@ public class SignInActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findSignInViews(this);
 
+        TextView signUp = manager.getSignUpLBL();
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manager.moveToSignUp(SignInActivity.this);
+            }
+        });
+
         password = manager.getSignInPasswordEDTEDT();
+
 
         password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -36,7 +52,18 @@ public class SignInActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                eye = manager.showEye(password);
+
+                if (count != before && !crossEye) {
+                    eye = manager.showEye(password);
+                    crossEye = false;
+                } else {
+                    crossEye = true;
+                    if (s.toString().isEmpty()) {
+                        eye = manager.showEye(password);
+                        password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                        crossEye = false;
+                    }
+                }
             }
 
             @Override
@@ -48,9 +75,8 @@ public class SignInActivity extends AppCompatActivity {
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_RIGHT = 2;
                 if (eye) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                         if (event.getX() >= (password.getWidth() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                             manager.switchPasswordVisibility(password);
                             return true;
@@ -60,7 +86,6 @@ public class SignInActivity extends AppCompatActivity {
                 return false;
             }
         });
-
 
     }
 }

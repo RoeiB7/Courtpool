@@ -26,8 +26,8 @@ public class GetStartedActivity extends AppCompatActivity {
             }
         });
 
-        TextView signUp = manager.getSignIn();
-        signUp.setOnClickListener(new View.OnClickListener() {
+        TextView signIn = manager.getSignIn();
+        signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 manager.moveToSignIn(GetStartedActivity.this);
