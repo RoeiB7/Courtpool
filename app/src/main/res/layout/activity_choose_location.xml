@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chooseLocationActivity">
+    tools:context=".ChooseLocationActivity">
 
 
     <LinearLayout
@@ -75,13 +75,13 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:background="#0844a4"
-                android:gravity="end"
+                android:gravity="center"
                 android:text="Where do you want to play? "
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:drawableEndCompat="@drawable/arrow" />
 
         </LinearLayout>

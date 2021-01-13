@@ -9,10 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Courtpool">
-        <activity android:name=".chooseLocationActivity"></activity>
-        <activity android:name=".signUpActivity" />
-        <activity android:name=".signInActivity" />
-        <activity android:name=".getStartedActivity">
+        <activity
+            android:name=".ChooseLocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GetStartedActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

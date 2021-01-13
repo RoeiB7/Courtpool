@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signUpActivity">
+    tools:context=".SignUpActivity">
 
 
     <LinearLayout
@@ -16,7 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
 
 
@@ -29,52 +29,40 @@
                 android:foreground="@drawable/image_border"
                 android:src="@drawable/ic_add_profilepic" />
 
-            <TextView
-                android:id="@+id/sign_up_LBL_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="48dp"
-                android:text="Name"
-                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/sign_up_EDT_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="36dp"
                 android:backgroundTint="#4B000000"
+                android:hint="Name"
                 android:inputType="text"
-                android:text="Yarin Getter"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/sign_up_LBL_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:text="Email"
-                android:textSize="30sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/sign_up_EDT_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:backgroundTint="#4B000000"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:text="yarin.get@gmail.com"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/sign_up_LBL_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:text="Password"
-                android:textSize="30sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
 
             <EditText
@@ -82,51 +70,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:backgroundTint="#4B000000"
-                android:drawableEnd="@drawable/ic_visibility"
+                android:hint="Password"
                 android:inputType="textPassword"
-                android:text="yarin1234"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/sign_up_LBL_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:text="Phone number"
-                android:textSize="30sp" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/sign_up_EDT_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="36dp"
                 android:backgroundTint="#4B000000"
+                android:hint="Phone number"
                 android:inputType="phone"
-                android:text="050-7738224"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="10"
+            android:layout_weight="2"
             android:orientation="vertical">
 
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="136dp"
                 android:background="#0844a4"
-                android:gravity="end"
+                android:gravity="center"
                 android:text="Where do you want to play? "
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:drawableEndCompat="@drawable/arrow" />
 
         </LinearLayout>
