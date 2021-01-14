@@ -18,20 +18,10 @@ public class GetStartedActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findGetStartedViews(this);
-        Button getStarted = manager.getGetStartedButton();
-        getStarted.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manager.moveToSignUp(GetStartedActivity.this);
-            }
-        });
+        Button getStarted = manager.getGet_started_BTN_getStarted();
+        getStarted.setOnClickListener(v -> manager.moveToSignUp(GetStartedActivity.this));
 
-        TextView signIn = manager.getSignIn();
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manager.moveToSignIn(GetStartedActivity.this);
-            }
-        });
+        TextView signIn = manager.getGet_started_LBL_signIn();
+        signIn.setOnClickListener(v -> manager.moveToSignIn(GetStartedActivity.this));
     }
 }

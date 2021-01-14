@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,16 +36,30 @@ public class SignInActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findSignInViews(this);
 
-        TextView signUp = manager.getSignUpLBL();
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manager.moveToSignUp(SignInActivity.this);
-            }
+        TextView signUp = manager.getSign_in_LBL_signUp();
+        signUp.setOnClickListener(v -> manager.moveToSignUp(SignInActivity.this));
+
+        Button signIn = manager.getSign_in_BTN_signIn();
+        signIn.setOnClickListener(v -> {
+
+            //TODO: ADD FUNCTIONALITY FOR LOGIN
+            // CHECK IF CREDENTIALS ARE CORRECT BEFORE MOVING,
+            // IF NOT POP UP AN ALERT FOR WRONG EMAIL/PASSWORD
+
+            manager.moveToChooseLocation(SignInActivity.this);
+
         });
 
-        password = manager.getSignInPasswordEDTEDT();
+        CheckBox rememberMe = manager.getSign_in_CBX_rememberMe();
+        rememberMe.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
+            //TODO: ADD FUNCTIONALITY FOR CHECKBOX
+            // IF isChecked IS TRUE SAVE EMAIL & PASSWORD WITH SHARED PREFERENCES
+
+        });
+
+
+        password = manager.getSign_in_EDT_password();
 
         password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -71,21 +87,16 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-
-        password.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (eye) {
-                    if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (event.getX() >= (password.getWidth() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                            manager.switchPasswordVisibility(password);
-                            return true;
-                        }
+        password.setOnTouchListener((v, event) -> {
+            if (eye) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getX() >= (password.getWidth() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        manager.switchPasswordVisibility(password);
+                        return true;
                     }
                 }
-                return false;
             }
+            return false;
         });
-
     }
 }

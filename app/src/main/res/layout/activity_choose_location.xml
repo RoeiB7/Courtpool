@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".ChooseLocationActivity">
 
 
@@ -19,12 +20,13 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/choose_location_IMG_player"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/ic_tennis_player" />
+                android:src="@drawable/man_playing" />
 
         </LinearLayout>
 
@@ -36,6 +38,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/choose_location_LBL_askPlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -46,6 +49,7 @@
 
 
             <TextView
+                android:id="@+id/choose_location_LBL_enterCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -55,13 +59,19 @@
                 android:textSize="16sp" />
 
             <EditText
+                android:id="@+id/choose_location_EDT_enterCity"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/round_edittext"
-                android:text="  Tel Aviv"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/choose_location_RCV_courtsLocations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>
@@ -74,12 +84,13 @@
 
 
             <TextView
+                android:id="@+id/choose_location_LBL_court"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:background="#0844a4"
                 android:gravity="center"
-                android:text="Where do you want to play? "
+                android:text="Tell us your court preferences "
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:drawableEndCompat="@drawable/arrow" />

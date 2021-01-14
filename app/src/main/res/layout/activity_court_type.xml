@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".CourtTypeActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/court_type_LBL_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="48dp"
+                android:text="Choose your court type"
+                android:textColor="@color/black"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_cement"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:src="@drawable/cement" />
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_checkMarkHard"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/check_mark"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_grass"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:src="@drawable/grass" />
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_checkMarkGrass"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="124dp"
+                    android:src="@drawable/check_mark"
+                    android:visibility="invisible" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_synthetic"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:src="@drawable/synthetic" />
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_checkMarkSynthetic"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="80dp"
+                    android:src="@drawable/check_mark"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_clay"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:src="@drawable/clay" />
+
+                <ImageView
+                    android:id="@+id/court_type_IMG_checkMarkClay"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="122dp"
+                    android:src="@drawable/check_mark"
+                    android:visibility="invisible" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/court_type_LBL_skill"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="120dp"
+                android:background="#0844a4"
+                android:gravity="center"
+                android:text="Tell us your skill level"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/arrow" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

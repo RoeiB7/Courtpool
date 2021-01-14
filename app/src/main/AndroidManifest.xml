@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Courtpool">
+        <activity android:name=".CourtTypeActivity"></activity>
         <activity
             android:name=".ChooseLocationActivity"
             android:screenOrientation="portrait" />
