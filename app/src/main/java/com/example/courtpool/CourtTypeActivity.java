@@ -13,11 +13,6 @@ public class CourtTypeActivity extends AppCompatActivity {
 
 
     private AppManager manager;
-    private ImageView cement;
-    private ImageView grass;
-    private ImageView synthetic;
-    private ImageView clay;
-    private TextView moveToSkills;
 
 
     @Override
@@ -28,38 +23,32 @@ public class CourtTypeActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findCourtTypeViews(this);
 
-        cement = manager.getCourt_type_IMG_cement();
+        ImageView cement = manager.getCourt_type_IMG_cement();
         cement.setOnClickListener(v -> {
-            manager.checkMarkOn("cement");
+            manager.checkMarkOn(AppManager.CEMENT);
         });
-        grass = manager.getCourt_type_IMG_grass();
+        ImageView grass = manager.getCourt_type_IMG_grass();
         grass.setOnClickListener(v -> {
-            manager.checkMarkOn("grass");
+            manager.checkMarkOn(AppManager.GRASS);
         });
-        synthetic = manager.getCourt_type_IMG_synthetic();
+        ImageView synthetic = manager.getCourt_type_IMG_synthetic();
         synthetic.setOnClickListener(v -> {
-            manager.checkMarkOn("synthetic");
+            manager.checkMarkOn(AppManager.SYNTHETIC);
         });
-        clay = manager.getCourt_type_IMG_clay();
+        ImageView clay = manager.getCourt_type_IMG_clay();
         clay.setOnClickListener(v -> {
-            manager.checkMarkOn("clay");
+            manager.checkMarkOn(AppManager.CLAY);
         });
 
-        moveToSkills = manager.getCourt_type_LBL_skill();
+        TextView moveToSkills = manager.getCourt_type_LBL_skill();
         moveToSkills.setOnClickListener(v -> {
             if (manager.checkMarkVisibility()) {
-
-                //TODO: MOVE TO SKILL
-
-
+                manager.moveToSkill(this);
             } else {
                 Toast.makeText(this,
                         "Please choose one or more court types",
                         Toast.LENGTH_LONG).show();
-
             }
-
-
         });
     }
 }

@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     break;
                 case 5:
-                    manager.moveToChooseLocation(SignUpActivity.this);
+                    manager.moveToChooseLocation(this);
                     //TODO: ADD FUNCTIONALITY FOR SIGN UP, SAVE IN DB ALL FIELDS
             }
 

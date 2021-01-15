@@ -37,7 +37,7 @@ public class SignInActivity extends AppCompatActivity {
         manager.findSignInViews(this);
 
         TextView signUp = manager.getSign_in_LBL_signUp();
-        signUp.setOnClickListener(v -> manager.moveToSignUp(SignInActivity.this));
+        signUp.setOnClickListener(v -> manager.moveToSignUp(this));
 
         Button signIn = manager.getSign_in_BTN_signIn();
         signIn.setOnClickListener(v -> {
@@ -46,7 +46,7 @@ public class SignInActivity extends AppCompatActivity {
             // CHECK IF CREDENTIALS ARE CORRECT BEFORE MOVING,
             // IF NOT POP UP AN ALERT FOR WRONG EMAIL/PASSWORD
 
-            manager.moveToChooseLocation(SignInActivity.this);
+            manager.moveToChooseLocation(this);
 
         });
 

@@ -26,6 +26,7 @@ public class AppManager {
     private TextView sign_up_LBL_play;
     private TextView choose_location_LBL_court;
     private TextView court_type_LBL_skill;
+    private TextView skill_LBL_when_playing;
 
     private EditText sign_in_EDT_email;
     private EditText sign_in_EDT_password;
@@ -43,6 +44,15 @@ public class AppManager {
     private ImageView court_type_IMG_checkMarkHard;
     private ImageView court_type_IMG_checkMarkGrass;
     private ImageView court_type_IMG_checkMarkSynthetic;
+    private ImageView skill_IMG_level_one;
+    private ImageView skill_IMG_level_two;
+    private ImageView skill_IMG_level_three;
+    private ImageView skill_IMG_number_one;
+    private ImageView skill_IMG_number_two;
+    private ImageView skill_IMG_number_three;
+    private ImageView skill_IMG_number_one_selected;
+    private ImageView skill_IMG_number_two_selected;
+    private ImageView skill_IMG_number_three_selected;
 
 
     private ImageView court_type_IMG_checkMarkClay;
@@ -52,6 +62,10 @@ public class AppManager {
     private RecyclerView choose_location_RCV_courtsLocations;
 
     private boolean visibility = false;
+    public static final String CEMENT = "cement";
+    public static final String GRASS = "grass";
+    public static final String SYNTHETIC = "synthetic";
+    public static final String CLAY = "clay";
 
     public AppManager(AppCompatActivity activity) {
 
@@ -100,6 +114,21 @@ public class AppManager {
     }
 
 
+    public void findSkillViews(AppCompatActivity activity) {
+        skill_IMG_level_one = activity.findViewById(R.id.skill_IMG_level_one);
+        skill_IMG_level_two = activity.findViewById(R.id.skill_IMG_level_two);
+        skill_IMG_level_three = activity.findViewById(R.id.skill_IMG_level_three);
+        skill_IMG_number_one = activity.findViewById(R.id.skill_IMG_number_one);
+        skill_IMG_number_two = activity.findViewById(R.id.skill_IMG_number_two);
+        skill_IMG_number_three = activity.findViewById(R.id.skill_IMG_number_three);
+        skill_IMG_number_one_selected = activity.findViewById(R.id.skill_IMG_number_one_selected);
+        skill_IMG_number_two_selected = activity.findViewById(R.id.skill_IMG_number_two_selected);
+        skill_IMG_number_three_selected = activity.findViewById(R.id.skill_IMG_number_three_selected);
+        skill_LBL_when_playing = activity.findViewById(R.id.skill_LBL_when_playing);
+
+    }
+
+
     public void moveToSignUp(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignUpActivity.class);
         activity.startActivity(intent);
@@ -117,6 +146,11 @@ public class AppManager {
 
     public void moveToCourtType(AppCompatActivity activity) {
         Intent intent = new Intent(activity, CourtTypeActivity.class);
+        activity.startActivity(intent);
+    }
+
+    public void moveToSkill(AppCompatActivity activity) {
+        Intent intent = new Intent(activity, SkillActivity.class);
         activity.startActivity(intent);
     }
 
@@ -170,28 +204,28 @@ public class AppManager {
     public void checkMarkOn(String checkMark) {
 
         switch (checkMark) {
-            case "cement":
+            case CEMENT:
                 if (isVisible(court_type_IMG_checkMarkHard)) {
                     court_type_IMG_checkMarkHard.setVisibility(View.INVISIBLE);
                 } else {
                     court_type_IMG_checkMarkHard.setVisibility(View.VISIBLE);
                 }
                 break;
-            case "grass":
+            case GRASS:
                 if (isVisible(court_type_IMG_checkMarkGrass)) {
                     court_type_IMG_checkMarkGrass.setVisibility(View.INVISIBLE);
                 } else {
                     court_type_IMG_checkMarkGrass.setVisibility(View.VISIBLE);
                 }
                 break;
-            case "synthetic":
+            case SYNTHETIC:
                 if (isVisible(court_type_IMG_checkMarkSynthetic)) {
                     court_type_IMG_checkMarkSynthetic.setVisibility(View.INVISIBLE);
                 } else {
                     court_type_IMG_checkMarkSynthetic.setVisibility(View.VISIBLE);
                 }
                 break;
-            case "clay":
+            case CLAY:
                 if (isVisible(court_type_IMG_checkMarkClay)) {
                     court_type_IMG_checkMarkClay.setVisibility(View.INVISIBLE);
                 } else {
@@ -212,6 +246,45 @@ public class AppManager {
         return imageView.getVisibility() == View.VISIBLE;
     }
 
+    public void isSelected(int level) {
+
+        switch (level) {
+            case 1:
+                if (isVisible(skill_IMG_number_one_selected)) {
+                    skill_IMG_number_one_selected.setVisibility(View.INVISIBLE);
+                } else {
+                    skill_IMG_number_one_selected.setVisibility(View.VISIBLE);
+                    skill_IMG_number_two_selected.setVisibility(View.INVISIBLE);
+                    skill_IMG_number_three_selected.setVisibility(View.INVISIBLE);
+                }
+                break;
+            case 2:
+                if (isVisible(skill_IMG_number_two_selected)) {
+                    skill_IMG_number_two_selected.setVisibility(View.INVISIBLE);
+                } else {
+                    skill_IMG_number_two_selected.setVisibility(View.VISIBLE);
+                    skill_IMG_number_one_selected.setVisibility(View.INVISIBLE);
+                    skill_IMG_number_three_selected.setVisibility(View.INVISIBLE);
+                }
+                break;
+            case 3:
+                if (isVisible(skill_IMG_number_three_selected)) {
+                    skill_IMG_number_three_selected.setVisibility(View.INVISIBLE);
+                } else {
+                    skill_IMG_number_three_selected.setVisibility(View.VISIBLE);
+                    skill_IMG_number_one_selected.setVisibility(View.INVISIBLE);
+                    skill_IMG_number_two_selected.setVisibility(View.INVISIBLE);
+                }
+                break;
+        }
+    }
+
+    public boolean checkNumberVisibility() {
+        return isVisible(skill_IMG_number_one_selected)
+                || isVisible(skill_IMG_number_two_selected)
+                || isVisible(skill_IMG_number_three_selected);
+    }
+
     public Button getGet_started_BTN_getStarted() {
         return get_started_BTN_getStarted;
     }
@@ -228,10 +301,6 @@ public class AppManager {
         return sign_in_LBL_signUp;
     }
 
-    public EditText getSign_in_EDT_email() {
-        return sign_in_EDT_email;
-    }
-
     public EditText getSign_in_EDT_password() {
         return sign_in_EDT_password;
     }
@@ -244,20 +313,8 @@ public class AppManager {
         return sign_up_LBL_play;
     }
 
-    public EditText getSign_up_EDT_name() {
-        return sign_up_EDT_name;
-    }
-
-    public EditText getSign_up_EDT_email() {
-        return sign_up_EDT_email;
-    }
-
     public EditText getSign_up_EDT_password() {
         return sign_up_EDT_password;
-    }
-
-    public EditText getSign_up_EDT_phone() {
-        return sign_up_EDT_phone;
     }
 
     public ImageView getSign_up_IMG_addProfilePic() {
@@ -266,14 +323,6 @@ public class AppManager {
 
     public TextView getChoose_location_LBL_court() {
         return choose_location_LBL_court;
-    }
-
-    public EditText getChoose_location_EDT_enterCity() {
-        return choose_location_EDT_enterCity;
-    }
-
-    public RecyclerView getChoose_location_RCV_courtsLocations() {
-        return choose_location_RCV_courtsLocations;
     }
 
     public TextView getCourt_type_LBL_skill() {
@@ -294,6 +343,22 @@ public class AppManager {
 
     public ImageView getCourt_type_IMG_clay() {
         return court_type_IMG_clay;
+    }
+
+    public TextView getSkill_LBL_when_playing() {
+        return skill_LBL_when_playing;
+    }
+
+    public ImageView getSkill_IMG_level_one() {
+        return skill_IMG_level_one;
+    }
+
+    public ImageView getSkill_IMG_level_two() {
+        return skill_IMG_level_two;
+    }
+
+    public ImageView getSkill_IMG_level_three() {
+        return skill_IMG_level_three;
     }
 
 

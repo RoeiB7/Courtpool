@@ -19,9 +19,9 @@ public class GetStartedActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findGetStartedViews(this);
         Button getStarted = manager.getGet_started_BTN_getStarted();
-        getStarted.setOnClickListener(v -> manager.moveToSignUp(GetStartedActivity.this));
+        getStarted.setOnClickListener(v -> manager.moveToSignUp(this));
 
         TextView signIn = manager.getGet_started_LBL_signIn();
-        signIn.setOnClickListener(v -> manager.moveToSignIn(GetStartedActivity.this));
+        signIn.setOnClickListener(v -> manager.moveToSignIn(this));
     }
 }
