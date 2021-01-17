@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".SkillActivity">
 
     <LinearLayout
@@ -47,21 +48,13 @@
                     android:src="@drawable/level_one" />
 
                 <ImageView
-                    android:id="@+id/skill_IMG_number_one"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
+                    android:id="@+id/skill_IMG_advanced"
+                    android:layout_width="72dp"
+                    android:layout_height="32dp"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/number_one" />
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/advanced" />
 
-                <ImageView
-                    android:id="@+id/skill_IMG_number_one_selected"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="16dp"
-                    android:src=""
-                    android:visibility="invisible" />
 
             </FrameLayout>
 
@@ -85,21 +78,13 @@
                     android:src="@drawable/level_two" />
 
                 <ImageView
-                    android:id="@+id/skill_IMG_number_two"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
+                    android:id="@+id/skill_IMG_intermediate"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/number_two" />
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/intermediate" />
 
-                <ImageView
-                    android:id="@+id/skill_IMG_number_two_selected"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="16dp"
-                    android:src=""
-                    android:visibility="invisible" />
 
             </FrameLayout>
 
@@ -123,21 +108,12 @@
                     android:src="@drawable/level_three" />
 
                 <ImageView
-                    android:id="@+id/skill_IMG_number_three"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
+                    android:id="@+id/skill_IMG_beginner"
+                    android:layout_width="72dp"
+                    android:layout_height="32dp"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/number_three" />
-
-                <ImageView
-                    android:id="@+id/skill_IMG_number_three_selected"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="16dp"
-                    android:src=""
-                    android:visibility="invisible" />
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/beginner" />
 
             </FrameLayout>
 

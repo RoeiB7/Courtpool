@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Courtpool">
-        <activity android:name=".SkillActivity"></activity>
+        <activity android:name=".DayAndTimeActivity"></activity>
+        <activity android:name=".SkillActivity" />
         <activity android:name=".CourtTypeActivity" />
         <activity
             android:name=".ChooseLocationActivity"

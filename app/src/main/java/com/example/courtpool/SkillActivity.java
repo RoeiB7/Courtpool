@@ -19,6 +19,7 @@ public class SkillActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findSkillViews(this);
+        manager.setTennisAlpha();
 
         ImageView levelOne = manager.getSkill_IMG_level_one();
         levelOne.setOnClickListener(v -> {
@@ -37,8 +38,11 @@ public class SkillActivity extends AppCompatActivity {
 
         TextView moveToTime = manager.getSkill_LBL_when_playing();
         moveToTime.setOnClickListener(v -> {
-            if (manager.checkNumberVisibility()) {
+            if (manager.checkImageAlpha()) {
                 //TODO:MOVE TO CHOOSE DAY & TIME
+                Toast.makeText(this,
+                        "moving to day & time",
+                        Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this,
                         "Please choose one skill level",

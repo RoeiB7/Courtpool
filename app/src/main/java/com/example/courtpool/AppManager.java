@@ -1,6 +1,7 @@
 package com.example.courtpool;
 
 import android.content.Intent;
+import android.media.Image;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.text.method.SingleLineTransformationMethod;
@@ -47,13 +48,6 @@ public class AppManager {
     private ImageView skill_IMG_level_one;
     private ImageView skill_IMG_level_two;
     private ImageView skill_IMG_level_three;
-    private ImageView skill_IMG_number_one;
-    private ImageView skill_IMG_number_two;
-    private ImageView skill_IMG_number_three;
-    private ImageView skill_IMG_number_one_selected;
-    private ImageView skill_IMG_number_two_selected;
-    private ImageView skill_IMG_number_three_selected;
-
 
     private ImageView court_type_IMG_checkMarkClay;
 
@@ -66,6 +60,7 @@ public class AppManager {
     public static final String GRASS = "grass";
     public static final String SYNTHETIC = "synthetic";
     public static final String CLAY = "clay";
+
 
     public AppManager(AppCompatActivity activity) {
 
@@ -118,14 +113,7 @@ public class AppManager {
         skill_IMG_level_one = activity.findViewById(R.id.skill_IMG_level_one);
         skill_IMG_level_two = activity.findViewById(R.id.skill_IMG_level_two);
         skill_IMG_level_three = activity.findViewById(R.id.skill_IMG_level_three);
-        skill_IMG_number_one = activity.findViewById(R.id.skill_IMG_number_one);
-        skill_IMG_number_two = activity.findViewById(R.id.skill_IMG_number_two);
-        skill_IMG_number_three = activity.findViewById(R.id.skill_IMG_number_three);
-        skill_IMG_number_one_selected = activity.findViewById(R.id.skill_IMG_number_one_selected);
-        skill_IMG_number_two_selected = activity.findViewById(R.id.skill_IMG_number_two_selected);
-        skill_IMG_number_three_selected = activity.findViewById(R.id.skill_IMG_number_three_selected);
         skill_LBL_when_playing = activity.findViewById(R.id.skill_LBL_when_playing);
-
     }
 
 
@@ -250,39 +238,46 @@ public class AppManager {
 
         switch (level) {
             case 1:
-                if (isVisible(skill_IMG_number_one_selected)) {
-                    skill_IMG_number_one_selected.setVisibility(View.INVISIBLE);
+                if (skill_IMG_level_one.getImageAlpha() == 255) {
+                    skill_IMG_level_one.setImageAlpha(127);
                 } else {
-                    skill_IMG_number_one_selected.setVisibility(View.VISIBLE);
-                    skill_IMG_number_two_selected.setVisibility(View.INVISIBLE);
-                    skill_IMG_number_three_selected.setVisibility(View.INVISIBLE);
+                    skill_IMG_level_one.setImageAlpha(255);
+                    skill_IMG_level_two.setImageAlpha(127);
+                    skill_IMG_level_three.setImageAlpha(127);
                 }
                 break;
             case 2:
-                if (isVisible(skill_IMG_number_two_selected)) {
-                    skill_IMG_number_two_selected.setVisibility(View.INVISIBLE);
+                if (skill_IMG_level_two.getImageAlpha() == 255) {
+                    skill_IMG_level_two.setImageAlpha(127);
                 } else {
-                    skill_IMG_number_two_selected.setVisibility(View.VISIBLE);
-                    skill_IMG_number_one_selected.setVisibility(View.INVISIBLE);
-                    skill_IMG_number_three_selected.setVisibility(View.INVISIBLE);
+                    skill_IMG_level_two.setImageAlpha(255);
+                    skill_IMG_level_one.setImageAlpha(127);
+                    skill_IMG_level_three.setImageAlpha(127);
                 }
                 break;
             case 3:
-                if (isVisible(skill_IMG_number_three_selected)) {
-                    skill_IMG_number_three_selected.setVisibility(View.INVISIBLE);
+                if (skill_IMG_level_three.getImageAlpha() == 255) {
+                    skill_IMG_level_three.setImageAlpha(127);
                 } else {
-                    skill_IMG_number_three_selected.setVisibility(View.VISIBLE);
-                    skill_IMG_number_one_selected.setVisibility(View.INVISIBLE);
-                    skill_IMG_number_two_selected.setVisibility(View.INVISIBLE);
+                    skill_IMG_level_three.setImageAlpha(255);
+                    skill_IMG_level_two.setImageAlpha(127);
+                    skill_IMG_level_one.setImageAlpha(127);
                 }
                 break;
         }
     }
 
-    public boolean checkNumberVisibility() {
-        return isVisible(skill_IMG_number_one_selected)
-                || isVisible(skill_IMG_number_two_selected)
-                || isVisible(skill_IMG_number_three_selected);
+    public boolean checkImageAlpha() {
+        return skill_IMG_level_one.getImageAlpha() == 255 ||
+                skill_IMG_level_two.getImageAlpha() == 255 ||
+                skill_IMG_level_three.getImageAlpha() == 255;
+
+    }
+
+    public void setTennisAlpha() {
+        skill_IMG_level_one.setImageAlpha(127);
+        skill_IMG_level_two.setImageAlpha(127);
+        skill_IMG_level_three.setImageAlpha(127);
     }
 
     public Button getGet_started_BTN_getStarted() {
