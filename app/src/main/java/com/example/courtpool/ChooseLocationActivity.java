@@ -20,12 +20,12 @@ public class ChooseLocationActivity extends AppCompatActivity {
         manager.findChooseLocationViews(this);
 
         TextView courtType = manager.getChoose_location_LBL_court();
-        courtType.setOnClickListener(v -> {
+        courtType.setOnClickListener(v ->
 
-            //TODO: ADD FUNCTIONALITY FOR MOVING TO COURT TYPE,
-            // ONLY AFTER CHOOSING COURT LOCATION
-            // IF DIDN'T CHOOSE LOCATION POP UP AN ALERT
-            manager.moveToCourtType(ChooseLocationActivity.this);
-        });
+                //TODO: ADD FUNCTIONALITY FOR MOVING TO COURT TYPE,
+                // ONLY AFTER CHOOSING COURT LOCATION
+                // IF DIDN'T CHOOSE LOCATION POP UP AN ALERT
+                manager.moveToCourtType(ChooseLocationActivity.this)
+        );
     }
 }

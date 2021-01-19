@@ -24,21 +24,16 @@ public class CourtTypeActivity extends AppCompatActivity {
         manager.findCourtTypeViews(this);
 
         ImageView cement = manager.getCourt_type_IMG_cement();
-        cement.setOnClickListener(v -> {
-            manager.checkMarkOn(AppManager.CEMENT);
-        });
+        cement.setOnClickListener(v -> manager.checkMarkOn(AppManager.CEMENT));
+
         ImageView grass = manager.getCourt_type_IMG_grass();
-        grass.setOnClickListener(v -> {
-            manager.checkMarkOn(AppManager.GRASS);
-        });
+        grass.setOnClickListener(v -> manager.checkMarkOn(AppManager.GRASS));
+
         ImageView synthetic = manager.getCourt_type_IMG_synthetic();
-        synthetic.setOnClickListener(v -> {
-            manager.checkMarkOn(AppManager.SYNTHETIC);
-        });
+        synthetic.setOnClickListener(v -> manager.checkMarkOn(AppManager.SYNTHETIC));
+
         ImageView clay = manager.getCourt_type_IMG_clay();
-        clay.setOnClickListener(v -> {
-            manager.checkMarkOn(AppManager.CLAY);
-        });
+        clay.setOnClickListener(v -> manager.checkMarkOn(AppManager.CLAY));
 
         TextView moveToSkills = manager.getCourt_type_LBL_skill();
         moveToSkills.setOnClickListener(v -> {

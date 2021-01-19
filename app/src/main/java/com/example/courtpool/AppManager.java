@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AppManager {
@@ -21,6 +23,8 @@ public class AppManager {
 
     private Button get_started_BTN_getStarted;
     private Button sign_in_BTN_signIn;
+    private Button matches_BTN_profile;
+    private Button matches_BTN_matches;
 
     private TextView get_started_LBL_signIn;
     private TextView sign_in_LBL_signUp;
@@ -28,6 +32,7 @@ public class AppManager {
     private TextView choose_location_LBL_court;
     private TextView court_type_LBL_skill;
     private TextView skill_LBL_when_playing;
+    private TextView day_and_time_LBL_find;
 
     private EditText sign_in_EDT_email;
     private EditText sign_in_EDT_password;
@@ -45,17 +50,63 @@ public class AppManager {
     private ImageView court_type_IMG_checkMarkHard;
     private ImageView court_type_IMG_checkMarkGrass;
     private ImageView court_type_IMG_checkMarkSynthetic;
+    private ImageView court_type_IMG_checkMarkClay;
     private ImageView skill_IMG_level_one;
     private ImageView skill_IMG_level_two;
     private ImageView skill_IMG_level_three;
+    private ImageView day_and_time_IMG_sunday_morning;
+    private ImageView day_and_time_IMG_sunday_mid_day;
+    private ImageView day_and_time_IMG_sunday_evening;
+    private ImageView day_and_time_IMG_monday_morning;
+    private ImageView day_and_time_IMG_monday_mid_day;
+    private ImageView day_and_time_IMG_monday_evening;
+    private ImageView day_and_time_IMG_tuesday_morning;
+    private ImageView day_and_time_IMG_tuesday_mid_day;
+    private ImageView day_and_time_IMG_tuesday_evening;
+    private ImageView day_and_time_IMG_wednesday_morning;
+    private ImageView day_and_time_IMG_wednesday_mid_day;
+    private ImageView day_and_time_IMG_wednesday_evening;
+    private ImageView day_and_time_IMG_thursday_morning;
+    private ImageView day_and_time_IMG_thursday_mid_day;
+    private ImageView day_and_time_IMG_thursday_evening;
+    private ImageView day_and_time_IMG_friday_morning;
+    private ImageView day_and_time_IMG_friday_mid_day;
+    private ImageView day_and_time_IMG_friday_evening;
+    private ImageView day_and_time_IMG_saturday_morning;
+    private ImageView day_and_time_IMG_saturday_mid_day;
+    private ImageView day_and_time_IMG_saturday_evening;
 
-    private ImageView court_type_IMG_checkMarkClay;
+
+    private LinearLayout day_and_time_LAY_sunday_morning;
+    private LinearLayout day_and_time_LAY_sunday_mid_day;
+    private LinearLayout day_and_time_LAY_sunday_evening;
+    private LinearLayout day_and_time_LAY_monday_morning;
+    private LinearLayout day_and_time_LAY_monday_mid_day;
+    private LinearLayout day_and_time_LAY_monday_evening;
+    private LinearLayout day_and_time_LAY_tuesday_morning;
+    private LinearLayout day_and_time_LAY_tuesday_mid_day;
+    private LinearLayout day_and_time_LAY_tuesday_evening;
+    private LinearLayout day_and_time_LAY_wednesday_morning;
+    private LinearLayout day_and_time_LAY_wednesday_mid_day;
+    private LinearLayout day_and_time_LAY_wednesday_evening;
+    private LinearLayout day_and_time_LAY_thursday_morning;
+    private LinearLayout day_and_time_LAY_thursday_mid_day;
+    private LinearLayout day_and_time_LAY_thursday_evening;
+    private LinearLayout day_and_time_LAY_friday_morning;
+    private LinearLayout day_and_time_LAY_friday_mid_day;
+    private LinearLayout day_and_time_LAY_friday_evening;
+    private LinearLayout day_and_time_LAY_saturday_morning;
+    private LinearLayout day_and_time_LAY_saturday_mid_day;
+    private LinearLayout day_and_time_LAY_saturday_evening;
+
 
     private CheckBox sign_in_CBX_rememberMe;
 
     private RecyclerView choose_location_RCV_courtsLocations;
+    private RecyclerView matches_RCV_matches;
 
     private boolean visibility = false;
+    private int daysSelected = 0;
     public static final String CEMENT = "cement";
     public static final String GRASS = "grass";
     public static final String SYNTHETIC = "synthetic";
@@ -116,6 +167,62 @@ public class AppManager {
         skill_LBL_when_playing = activity.findViewById(R.id.skill_LBL_when_playing);
     }
 
+    public void findDayAndTimeViews(AppCompatActivity activity) {
+        day_and_time_IMG_sunday_morning = activity.findViewById(R.id.day_and_time_IMG_sunday_morning);
+        day_and_time_IMG_sunday_mid_day = activity.findViewById(R.id.day_and_time_IMG_sunday_mid_day);
+        day_and_time_IMG_sunday_evening = activity.findViewById(R.id.day_and_time_IMG_sunday_evening);
+        day_and_time_IMG_monday_morning = activity.findViewById(R.id.day_and_time_IMG_monday_morning);
+        day_and_time_IMG_monday_mid_day = activity.findViewById(R.id.day_and_time_IMG_monday_mid_day);
+        day_and_time_IMG_monday_evening = activity.findViewById(R.id.day_and_time_IMG_monday_evening);
+        day_and_time_IMG_tuesday_morning = activity.findViewById(R.id.day_and_time_IMG_tuesday_morning);
+        day_and_time_IMG_tuesday_mid_day = activity.findViewById(R.id.day_and_time_IMG_tuesday_mid_day);
+        day_and_time_IMG_tuesday_evening = activity.findViewById(R.id.day_and_time_IMG_tuesday_evening);
+        day_and_time_IMG_wednesday_morning = activity.findViewById(R.id.day_and_time_IMG_wednesday_morning);
+        day_and_time_IMG_wednesday_mid_day = activity.findViewById(R.id.day_and_time_IMG_wednesday_mid_day);
+        day_and_time_IMG_wednesday_evening = activity.findViewById(R.id.day_and_time_IMG_wednesday_evening);
+        day_and_time_IMG_thursday_morning = activity.findViewById(R.id.day_and_time_IMG_thursday_morning);
+        day_and_time_IMG_thursday_mid_day = activity.findViewById(R.id.day_and_time_IMG_thursday_mid_day);
+        day_and_time_IMG_thursday_evening = activity.findViewById(R.id.day_and_time_IMG_thursday_evening);
+        day_and_time_IMG_friday_morning = activity.findViewById(R.id.day_and_time_IMG_friday_morning);
+        day_and_time_IMG_friday_mid_day = activity.findViewById(R.id.day_and_time_IMG_friday_mid_day);
+        day_and_time_IMG_friday_evening = activity.findViewById(R.id.day_and_time_IMG_friday_evening);
+        day_and_time_IMG_saturday_morning = activity.findViewById(R.id.day_and_time_IMG_saturday_morning);
+        day_and_time_IMG_saturday_mid_day = activity.findViewById(R.id.day_and_time_IMG_saturday_mid_day);
+        day_and_time_IMG_saturday_evening = activity.findViewById(R.id.day_and_time_IMG_saturday_evening);
+
+
+        day_and_time_LAY_sunday_morning = activity.findViewById(R.id.day_and_time_LAY_sunday_morning);
+        day_and_time_LAY_sunday_mid_day = activity.findViewById(R.id.day_and_time_LAY_sunday_mid_day);
+        day_and_time_LAY_sunday_evening = activity.findViewById(R.id.day_and_time_LAY_sunday_evening);
+        day_and_time_LAY_monday_morning = activity.findViewById(R.id.day_and_time_LAY_monday_morning);
+        day_and_time_LAY_monday_mid_day = activity.findViewById(R.id.day_and_time_LAY_monday_mid_day);
+        day_and_time_LAY_monday_evening = activity.findViewById(R.id.day_and_time_LAY_monday_evening);
+        day_and_time_LAY_tuesday_morning = activity.findViewById(R.id.day_and_time_LAY_tuesday_morning);
+        day_and_time_LAY_tuesday_mid_day = activity.findViewById(R.id.day_and_time_LAY_tuesday_mid_day);
+        day_and_time_LAY_tuesday_evening = activity.findViewById(R.id.day_and_time_LAY_tuesday_evening);
+        day_and_time_LAY_wednesday_morning = activity.findViewById(R.id.day_and_time_LAY_wednesday_morning);
+        day_and_time_LAY_wednesday_mid_day = activity.findViewById(R.id.day_and_time_LAY_wednesday_mid_day);
+        day_and_time_LAY_wednesday_evening = activity.findViewById(R.id.day_and_time_LAY_wednesday_evening);
+        day_and_time_LAY_thursday_morning = activity.findViewById(R.id.day_and_time_LAY_thursday_morning);
+        day_and_time_LAY_thursday_mid_day = activity.findViewById(R.id.day_and_time_LAY_thursday_mid_day);
+        day_and_time_LAY_thursday_evening = activity.findViewById(R.id.day_and_time_LAY_thursday_evening);
+        day_and_time_LAY_friday_morning = activity.findViewById(R.id.day_and_time_LAY_friday_morning);
+        day_and_time_LAY_friday_mid_day = activity.findViewById(R.id.day_and_time_LAY_friday_mid_day);
+        day_and_time_LAY_friday_evening = activity.findViewById(R.id.day_and_time_LAY_friday_evening);
+        day_and_time_LAY_saturday_morning = activity.findViewById(R.id.day_and_time_LAY_saturday_morning);
+        day_and_time_LAY_saturday_mid_day = activity.findViewById(R.id.day_and_time_LAY_saturday_mid_day);
+        day_and_time_LAY_saturday_evening = activity.findViewById(R.id.day_and_time_LAY_saturday_evening);
+
+        day_and_time_LBL_find = activity.findViewById(R.id.day_and_time_LBL_find);
+
+    }
+
+    public void findMatchesViews(AppCompatActivity activity) {
+        matches_BTN_matches = activity.findViewById(R.id.matches_BTN_matches);
+        matches_BTN_profile = activity.findViewById(R.id.matches_BTN_profile);
+        matches_RCV_matches = activity.findViewById(R.id.matches_RCV_matches);
+    }
+
 
     public void moveToSignUp(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignUpActivity.class);
@@ -139,6 +246,16 @@ public class AppManager {
 
     public void moveToSkill(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SkillActivity.class);
+        activity.startActivity(intent);
+    }
+
+    public void moveToDayAndTime(AppCompatActivity activity) {
+        Intent intent = new Intent(activity, DayAndTimeActivity.class);
+        activity.startActivity(intent);
+    }
+
+    public void moveToMatches(AppCompatActivity activity) {
+        Intent intent = new Intent(activity, MatchesActivity.class);
         activity.startActivity(intent);
     }
 
@@ -234,7 +351,89 @@ public class AppManager {
         return imageView.getVisibility() == View.VISIBLE;
     }
 
-    public void isSelected(int level) {
+    public void tennisBallsAlpha(ImageView imageView) {
+        if (imageView.getImageAlpha() == 51) {
+            imageView.setImageAlpha(255);
+            daysSelected++;
+        } else {
+            imageView.setImageAlpha(51);
+            daysSelected--;
+        }
+    }
+
+
+    public void selectDay(int day) {
+
+        switch (day) {
+
+            case 1:
+                tennisBallsAlpha(day_and_time_IMG_sunday_morning);
+                break;
+            case 2:
+                tennisBallsAlpha(day_and_time_IMG_sunday_mid_day);
+                break;
+            case 3:
+                tennisBallsAlpha(day_and_time_IMG_sunday_evening);
+                break;
+            case 4:
+                tennisBallsAlpha(day_and_time_IMG_monday_morning);
+                break;
+            case 5:
+                tennisBallsAlpha(day_and_time_IMG_monday_mid_day);
+                break;
+            case 6:
+                tennisBallsAlpha(day_and_time_IMG_monday_evening);
+                break;
+            case 7:
+                tennisBallsAlpha(day_and_time_IMG_tuesday_morning);
+                break;
+            case 8:
+                tennisBallsAlpha(day_and_time_IMG_tuesday_mid_day);
+                break;
+            case 9:
+                tennisBallsAlpha(day_and_time_IMG_tuesday_evening);
+                break;
+            case 10:
+                tennisBallsAlpha(day_and_time_IMG_wednesday_morning);
+                break;
+            case 11:
+                tennisBallsAlpha(day_and_time_IMG_wednesday_mid_day);
+                break;
+            case 12:
+                tennisBallsAlpha(day_and_time_IMG_wednesday_evening);
+                break;
+            case 13:
+                tennisBallsAlpha(day_and_time_IMG_thursday_morning);
+                break;
+            case 14:
+                tennisBallsAlpha(day_and_time_IMG_thursday_mid_day);
+                break;
+            case 15:
+                tennisBallsAlpha(day_and_time_IMG_thursday_evening);
+                break;
+            case 16:
+                tennisBallsAlpha(day_and_time_IMG_friday_morning);
+                break;
+            case 17:
+                tennisBallsAlpha(day_and_time_IMG_friday_mid_day);
+                break;
+            case 18:
+                tennisBallsAlpha(day_and_time_IMG_friday_evening);
+                break;
+            case 19:
+                tennisBallsAlpha(day_and_time_IMG_saturday_morning);
+                break;
+            case 20:
+                tennisBallsAlpha(day_and_time_IMG_saturday_mid_day);
+                break;
+            case 21:
+                tennisBallsAlpha(day_and_time_IMG_saturday_evening);
+                break;
+        }
+    }
+
+
+    public void isSkillSelected(int level) {
 
         switch (level) {
             case 1:
@@ -274,11 +473,43 @@ public class AppManager {
 
     }
 
+    public boolean checkDaySelected() {
+        return daysSelected != 0;
+    }
+
+
     public void setTennisAlpha() {
         skill_IMG_level_one.setImageAlpha(127);
         skill_IMG_level_two.setImageAlpha(127);
         skill_IMG_level_three.setImageAlpha(127);
     }
+
+    public void setBallAlpha() {
+        day_and_time_IMG_sunday_morning.setImageAlpha(51);
+        day_and_time_IMG_sunday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_sunday_evening.setImageAlpha(51);
+        day_and_time_IMG_monday_morning.setImageAlpha(51);
+        day_and_time_IMG_monday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_monday_evening.setImageAlpha(51);
+        day_and_time_IMG_tuesday_morning.setImageAlpha(51);
+        day_and_time_IMG_tuesday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_tuesday_evening.setImageAlpha(51);
+        day_and_time_IMG_wednesday_morning.setImageAlpha(51);
+        day_and_time_IMG_wednesday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_wednesday_evening.setImageAlpha(51);
+        day_and_time_IMG_thursday_morning.setImageAlpha(51);
+        day_and_time_IMG_thursday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_thursday_evening.setImageAlpha(51);
+        day_and_time_IMG_friday_morning.setImageAlpha(51);
+        day_and_time_IMG_friday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_friday_evening.setImageAlpha(51);
+        day_and_time_IMG_saturday_morning.setImageAlpha(51);
+        day_and_time_IMG_saturday_mid_day.setImageAlpha(51);
+        day_and_time_IMG_saturday_evening.setImageAlpha(51);
+
+
+    }
+
 
     public Button getGet_started_BTN_getStarted() {
         return get_started_BTN_getStarted;
@@ -356,5 +587,91 @@ public class AppManager {
         return skill_IMG_level_three;
     }
 
+    public TextView getDay_and_time_LBL_find() {
+        return day_and_time_LBL_find;
+    }
 
+    public LinearLayout getDay_and_time_LAY_sunday_morning() {
+        return day_and_time_LAY_sunday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_sunday_mid_day() {
+        return day_and_time_LAY_sunday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_sunday_evening() {
+        return day_and_time_LAY_sunday_evening;
+    }
+
+    public LinearLayout getDay_and_time_LAY_monday_morning() {
+        return day_and_time_LAY_monday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_monday_mid_day() {
+        return day_and_time_LAY_monday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_monday_evening() {
+        return day_and_time_LAY_monday_evening;
+    }
+
+    public LinearLayout getDay_and_time_LAY_tuesday_morning() {
+        return day_and_time_LAY_tuesday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_tuesday_mid_day() {
+        return day_and_time_LAY_tuesday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_tuesday_evening() {
+        return day_and_time_LAY_tuesday_evening;
+    }
+
+    public LinearLayout getDay_and_time_LAY_wednesday_morning() {
+        return day_and_time_LAY_wednesday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_wednesday_mid_day() {
+        return day_and_time_LAY_wednesday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_wednesday_evening() {
+        return day_and_time_LAY_wednesday_evening;
+    }
+
+    public LinearLayout getDay_and_time_LAY_thursday_morning() {
+        return day_and_time_LAY_thursday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_thursday_mid_day() {
+        return day_and_time_LAY_thursday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_thursday_evening() {
+        return day_and_time_LAY_thursday_evening;
+    }
+
+    public LinearLayout getDay_and_time_LAY_friday_morning() {
+        return day_and_time_LAY_friday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_friday_mid_day() {
+        return day_and_time_LAY_friday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_friday_evening() {
+        return day_and_time_LAY_friday_evening;
+    }
+
+    public LinearLayout getDay_and_time_LAY_saturday_morning() {
+        return day_and_time_LAY_saturday_morning;
+    }
+
+    public LinearLayout getDay_and_time_LAY_saturday_mid_day() {
+        return day_and_time_LAY_saturday_mid_day;
+    }
+
+    public LinearLayout getDay_and_time_LAY_saturday_evening() {
+        return day_and_time_LAY_saturday_evening;
+    }
 }
