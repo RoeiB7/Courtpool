@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".DayAndTimeActivity">
+    tools:context=".activities.DayAndTimeActivity">
 
 
     <LinearLayout
@@ -112,16 +112,18 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_sunday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_monday_morning"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="2"
@@ -140,15 +142,17 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_monday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_tuesday_morning"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -167,15 +171,17 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_tuesday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_wednesday_morning"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -194,15 +200,17 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_wednesday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_thursday_morning"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -221,15 +229,17 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_thursday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_friday_morning"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -248,15 +258,17 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_friday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_saturday_morning"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -275,11 +287,12 @@
                             android:textStyle="bold" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_saturday_morning"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="32dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
@@ -320,6 +333,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_sunday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -329,15 +343,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_sunday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_monday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="2"
@@ -347,15 +363,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_monday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_tuesday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="3"
@@ -365,15 +383,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_tuesday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_wednesday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="4"
@@ -383,15 +403,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_wednesday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_thursday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="5"
@@ -401,15 +423,16 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_thursday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
-
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_friday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="6"
@@ -419,15 +442,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_friday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_saturday_mid_day"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="7"
@@ -437,11 +462,12 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_saturday_mid_day"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
                 </TableRow>
@@ -481,6 +507,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_sunday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="1"
@@ -490,15 +517,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_sunday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_monday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="2"
@@ -508,15 +537,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_monday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_tuesday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="3"
@@ -526,15 +557,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_tuesday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_wednesday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="4"
@@ -544,15 +577,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_wednesday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_thursday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="5"
@@ -562,15 +597,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_thursday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_friday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="6"
@@ -580,15 +617,17 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_friday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/day_and_time_LAY_saturday_evening"
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_column="7"
@@ -598,12 +637,12 @@
 
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:id="@+id/day_and_time_IMG_saturday_evening"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="56dp"
-                            android:src="@drawable/black_checkmark" />
-
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/tennis_ball" />
                     </LinearLayout>
                 </TableRow>
 

@@ -1,11 +1,13 @@
-package com.example.courtpool;
+package com.example.courtpool.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.R;
 
 public class GetStartedActivity extends AppCompatActivity {
 

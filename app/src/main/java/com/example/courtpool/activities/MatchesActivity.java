@@ -1,8 +1,11 @@
-package com.example.courtpool;
+package com.example.courtpool.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.R;
 
 public class MatchesActivity extends AppCompatActivity {
 

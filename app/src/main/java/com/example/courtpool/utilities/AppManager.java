@@ -1,11 +1,8 @@
-package com.example.courtpool;
+package com.example.courtpool.utilities;
 
 import android.content.Intent;
-import android.media.Image;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.text.method.SingleLineTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,8 +12,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.courtpool.R;
+import com.example.courtpool.activities.ChooseLocationActivity;
+import com.example.courtpool.activities.CourtTypeActivity;
+import com.example.courtpool.activities.DayAndTimeActivity;
+import com.example.courtpool.activities.MatchesActivity;
+import com.example.courtpool.activities.SignInActivity;
+import com.example.courtpool.activities.SignUpActivity;
+import com.example.courtpool.activities.SkillActivity;
 
 public class AppManager {
 
@@ -525,6 +530,10 @@ public class AppManager {
 
     public TextView getSign_in_LBL_signUp() {
         return sign_in_LBL_signUp;
+    }
+
+    public EditText getSign_in_EDT_email() {
+        return sign_in_EDT_email;
     }
 
     public EditText getSign_in_EDT_password() {

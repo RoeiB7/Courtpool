@@ -3,27 +3,36 @@
     package="com.example.courtpool">
 
     <application
+        android:name=".utilities.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Courtpool">
-        <activity android:name=".MatchesActivity"></activity>
-        <activity android:name=".DayAndTimeActivity" />
-        <activity android:name=".SkillActivity" />
-        <activity android:name=".CourtTypeActivity" />
         <activity
-            android:name=".ChooseLocationActivity"
+            android:name=".activities.MatchesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activities.DayAndTimeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".activities.SkillActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GetStartedActivity"
+            android:name=".activities.CourtTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ChooseLocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GetStartedActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
