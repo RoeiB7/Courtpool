@@ -20,7 +20,7 @@ public class SPManager {
 
     public static void init(Context context) {
         if (instance == null) {
-            instance = new SPManager(context);
+            instance = new SPManager(context.getApplicationContext());
         }
     }
 

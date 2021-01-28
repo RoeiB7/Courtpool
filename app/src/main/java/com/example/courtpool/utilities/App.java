@@ -10,6 +10,7 @@ public class App extends Application {
         super.onCreate();
 
         SPManager.init(this);
+        Signal.init(this);
 
     }
 }

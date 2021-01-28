@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.courtpool.utilities.AppManager;
 import com.example.courtpool.R;
+import com.example.courtpool.utilities.Signal;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -46,26 +47,31 @@ public class SignUpActivity extends AppCompatActivity {
             switch (manager.checkFields()) {
 
                 case 0:
+                    Signal.getInstance().vibrate();
                     Toast.makeText(this,
                             "One or more fields are empty",
                             Toast.LENGTH_LONG).show();
                     break;
                 case 1:
+                    Signal.getInstance().vibrate();
                     Toast.makeText(this,
                             "Your name must contain at least 3 letter",
                             Toast.LENGTH_LONG).show();
                     break;
                 case 2:
+                    Signal.getInstance().vibrate();
                     Toast.makeText(this,
                             "Please fix your email format, i.e example@example.com",
                             Toast.LENGTH_LONG).show();
                     break;
                 case 3:
+                    Signal.getInstance().vibrate();
                     Toast.makeText(this,
                             "Your password must contain at least 8 characters",
                             Toast.LENGTH_LONG).show();
                     break;
                 case 4:
+                    Signal.getInstance().vibrate();
                     Toast.makeText(this,
                             "Your phone number must contain 10 digits",
                             Toast.LENGTH_LONG).show();
