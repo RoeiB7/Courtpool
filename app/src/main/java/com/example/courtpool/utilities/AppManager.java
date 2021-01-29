@@ -3,7 +3,9 @@ package com.example.courtpool.utilities;
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -23,6 +25,14 @@ import com.example.courtpool.activities.SignInActivity;
 import com.example.courtpool.activities.SignUpActivity;
 import com.example.courtpool.activities.SkillActivity;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+
 public class AppManager {
 
 
@@ -38,6 +48,7 @@ public class AppManager {
     private TextView court_type_LBL_skill;
     private TextView skill_LBL_when_playing;
     private TextView day_and_time_LBL_find;
+    private AutoCompleteTextView choose_location_ACLBL_enterCity;
 
     private EditText sign_in_EDT_email;
     private EditText sign_in_EDT_password;
@@ -45,7 +56,6 @@ public class AppManager {
     private EditText sign_up_EDT_email;
     private EditText sign_up_EDT_password;
     private EditText sign_up_EDT_phone;
-    private EditText choose_location_EDT_enterCity;
 
     private ImageView sign_up_IMG_addProfilePic;
     private ImageView court_type_IMG_cement;
@@ -122,7 +132,6 @@ public class AppManager {
 
     }
 
-
     public void findGetStartedViews(AppCompatActivity activity) {
         get_started_BTN_getStarted = activity.findViewById(R.id.get_started_BTN_getStarted);
         get_started_LBL_signIn = activity.findViewById(R.id.get_started_LBL_signIn);
@@ -148,7 +157,7 @@ public class AppManager {
 
     public void findChooseLocationViews(AppCompatActivity activity) {
         choose_location_LBL_court = activity.findViewById(R.id.choose_location_LBL_court);
-        choose_location_EDT_enterCity = activity.findViewById(R.id.choose_location_EDT_enterCity);
+        choose_location_ACLBL_enterCity = activity.findViewById(R.id.choose_location_ACLBL_enterCity);
         choose_location_RCV_courtsLocations = activity.findViewById(R.id.choose_location_RCV_courtsLocations);
     }
 
@@ -515,6 +524,28 @@ public class AppManager {
 
     }
 
+    public ArrayList<String> jsonToList(AppCompatActivity activity, String filename, String keyword, ArrayList<String> arrayList) {
+
+        String json;
+        try {
+            InputStream is = activity.getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, StandardCharsets.UTF_8);
+            JSONArray jsonArray = new JSONArray(json);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                arrayList.add(obj.getString(keyword));
+            }
+        } catch (Exception e) {
+            Log.e("error", e.toString());
+        }
+
+        return arrayList;
+    }
+
 
     public Button getGet_started_BTN_getStarted() {
         return get_started_BTN_getStarted;
@@ -558,6 +589,10 @@ public class AppManager {
 
     public TextView getChoose_location_LBL_court() {
         return choose_location_LBL_court;
+    }
+
+    public AutoCompleteTextView getChoose_location_ACLBL_enterCity() {
+        return choose_location_ACLBL_enterCity;
     }
 
     public TextView getCourt_type_LBL_skill() {

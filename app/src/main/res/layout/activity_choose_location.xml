@@ -58,12 +58,14 @@
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/choose_location_EDT_enterCity"
+            <AutoCompleteTextView
+                android:id="@+id/choose_location_ACLBL_enterCity"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/round_edittext"
+                android:completionThreshold="2"
+                android:dropDownHeight="190dp"
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
