@@ -117,8 +117,8 @@ public class AppManager {
 
     private CheckBox sign_in_CBX_rememberMe;
 
-    private RecyclerView choose_location_RCV_courtsLocations;
-    private RecyclerView matches_RCV_matches;
+    private RecyclerView choose_location_LST_courtsLocations;
+    private RecyclerView matches_LST_matches;
 
     private boolean visibility = false;
     private int daysSelected = 0;
@@ -158,7 +158,7 @@ public class AppManager {
     public void findChooseLocationViews(AppCompatActivity activity) {
         choose_location_LBL_court = activity.findViewById(R.id.choose_location_LBL_court);
         choose_location_ACLBL_enterCity = activity.findViewById(R.id.choose_location_ACLBL_enterCity);
-        choose_location_RCV_courtsLocations = activity.findViewById(R.id.choose_location_RCV_courtsLocations);
+        choose_location_LST_courtsLocations = activity.findViewById(R.id.choose_location_LST_courtsLocations);
     }
 
     public void findCourtTypeViews(AppCompatActivity activity) {
@@ -234,7 +234,7 @@ public class AppManager {
     public void findMatchesViews(AppCompatActivity activity) {
         matches_BTN_matches = activity.findViewById(R.id.matches_BTN_matches);
         matches_BTN_profile = activity.findViewById(R.id.matches_BTN_profile);
-        matches_RCV_matches = activity.findViewById(R.id.matches_RCV_matches);
+        matches_LST_matches = activity.findViewById(R.id.matches_LST_matches);
     }
 
 
@@ -593,6 +593,10 @@ public class AppManager {
 
     public AutoCompleteTextView getChoose_location_ACLBL_enterCity() {
         return choose_location_ACLBL_enterCity;
+    }
+
+    public RecyclerView getChoose_location_LST_courtsLocations() {
+        return choose_location_LST_courtsLocations;
     }
 
     public TextView getCourt_type_LBL_skill() {
