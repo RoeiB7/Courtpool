@@ -1,4 +1,4 @@
-package com.example.courtpool.utilities;
+package com.example.courtpool.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -27,6 +27,10 @@ public class Adapter_Court extends RecyclerView.Adapter<Adapter_Court.MyViewHold
         this.courts = _courts;
     }
 
+    public void updateOneItem(int position) {
+        notifyItemChanged(position);
+    }
+
     // inflates the row layout from xml when needed
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,6 +45,7 @@ public class Adapter_Court extends RecyclerView.Adapter<Adapter_Court.MyViewHold
         Court court = courts.get(position);
         holder.court_LBL_name.setText(court.getName());
         holder.court_LBL_address.setText(court.getAddress());
+        holder.court_IMG_checkmark.setVisibility(court.getChecked() ? View.VISIBLE : View.INVISIBLE);
     }
 
     // total number of rows

@@ -1,5 +1,6 @@
 package com.example.courtpool.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,25 +8,36 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.objects.User;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
-import com.example.courtpool.utilities.Signal;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
     private AppManager manager;
-    private EditText password;
+    private EditText name, email, phone, password;
+    private ImageView profilePic;
     private boolean eye = false;
     private boolean crossEye = false;
     private final int DRAWABLE_RIGHT = 2;
 
-    @SuppressLint("ClickableViewAccessibility")
+    private String userID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,58 +45,26 @@ public class SignUpActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findSignUpViews(this);
+        initViews();
 
-        ImageView profilePic = manager.getSign_up_IMG_addProfilePic();
+    }
+
+
+    @SuppressLint("ClickableViewAccessibility")
+    public void initViews() {
+
+        profilePic = manager.getSign_up_IMG_addProfilePic();
+        password = manager.getSign_up_EDT_password();
+        name = manager.getSign_up_EDT_name();
+        email = manager.getSign_up_EDT_email();
+        phone = manager.getSign_up_EDT_phone();
+
         profilePic.setOnClickListener(v -> {
 
-            //TODO: ADD FUNCTIONALITY FOR UPLOADING PICTURE & SAVE IN DB
+            //TODO: ADD FUNCTIONALITY FOR UPLOADING PICTURE
 
         });
 
-        TextView play = manager.getSign_up_LBL_play();
-        play.setOnClickListener(v -> {
-
-            switch (manager.checkFields()) {
-
-                case 0:
-                    Signal.getInstance().vibrate();
-                    Toast.makeText(this,
-                            "One or more fields are empty",
-                            Toast.LENGTH_LONG).show();
-                    break;
-                case 1:
-                    Signal.getInstance().vibrate();
-                    Toast.makeText(this,
-                            "Your name must contain at least 3 letter",
-                            Toast.LENGTH_LONG).show();
-                    break;
-                case 2:
-                    Signal.getInstance().vibrate();
-                    Toast.makeText(this,
-                            "Please fix your email format, i.e example@example.com",
-                            Toast.LENGTH_LONG).show();
-                    break;
-                case 3:
-                    Signal.getInstance().vibrate();
-                    Toast.makeText(this,
-                            "Your password must contain at least 8 characters",
-                            Toast.LENGTH_LONG).show();
-                    break;
-                case 4:
-                    Signal.getInstance().vibrate();
-                    Toast.makeText(this,
-                            "Your phone number must contain 10 digits",
-                            Toast.LENGTH_LONG).show();
-                    break;
-                case 5:
-                    manager.moveToChooseLocation(this);
-                    //TODO: ADD FUNCTIONALITY FOR SIGN UP, SAVE IN DB ALL FIELDS
-            }
-
-        });
-
-
-        password = manager.getSign_up_EDT_password();
 
         password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -124,6 +104,35 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         });
 
+        TextView play = manager.getSign_up_LBL_play();
+        play.setOnClickListener(v -> {
 
+            switch (manager.checkFields()) {
+
+                case 0:
+                    Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();
+                    break;
+                case 1:
+                    name.setError("Your name must contain at least 2 letter");
+                    break;
+                case 2:
+                    email.setError("Please fix your email format, i.e example@example.com");
+                    break;
+                case 3:
+                    password.setError("Your password must contain at least 8 characters");
+                    break;
+                case 4:
+                    phone.setError("Your phone number must contain 10 digits");
+                    break;
+                case 5:
+                    AppManager.user.setName(name.getText().toString().trim());
+                    AppManager.user.setEmail(email.getText().toString().trim());
+                    AppManager.user.setPassword(password.getText().toString().trim());
+                    AppManager.user.setPhone(phone.getText().toString().trim());
+                    manager.moveToChooseLocation(this);
+                    break;
+
+            }
+        });
     }
 }

@@ -1,5 +1,6 @@
 package com.example.courtpool.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -12,10 +13,17 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
-import com.example.courtpool.utilities.SPManager;
+import com.example.courtpool.utils.SPManager;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -27,6 +35,7 @@ public class SignInActivity extends AppCompatActivity {
     private final int DRAWABLE_RIGHT = 2;
     private final String PASSWORD = "password";
     private final String EMAIL = "email";
+    private FirebaseAuth fAuth;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -37,6 +46,7 @@ public class SignInActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findSignInViews(this);
+        fAuth = FirebaseAuth.getInstance();
 
         signin_password = manager.getSign_in_EDT_password();
         signin_email = manager.getSign_in_EDT_email();
@@ -54,15 +64,27 @@ public class SignInActivity extends AppCompatActivity {
 
         Button signIn = manager.getSign_in_BTN_signIn();
         signIn.setOnClickListener(v -> {
+            if (manager.isEmpty(signin_email)) {
+                signin_email.setError("Email is required");
+                return;
+            }
 
-            //TODO: ADD FUNCTIONALITY FOR LOGIN
-            // CHECK IF CREDENTIALS ARE CORRECT BEFORE MOVING,
-            // IF NOT POP UP AN ALERT FOR WRONG EMAIL/PASSWORD
+            if (manager.isEmpty(signin_password)) {
+                signin_password.setError("Password is required");
+                return;
+            }
 
-            manager.moveToChooseLocation(this);
+            fAuth.signInWithEmailAndPassword(signin_email.getText().toString().trim(), signin_password.getText().toString().trim())
 
+                    .addOnSuccessListener(authResult -> {
+                        Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
+                        manager.moveToMatches(this);
+                    })
+
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
         });
-
 
         signin_password.addTextChangedListener(new TextWatcher() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.courtpool.utilities;
+package com.example.courtpool.utils;
 
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.courtpool.R;
 import com.example.courtpool.activities.ChooseLocationActivity;
 import com.example.courtpool.activities.CourtTypeActivity;
@@ -24,14 +25,17 @@ import com.example.courtpool.activities.MatchesActivity;
 import com.example.courtpool.activities.SignInActivity;
 import com.example.courtpool.activities.SignUpActivity;
 import com.example.courtpool.activities.SkillActivity;
+import com.example.courtpool.objects.Court;
+import com.example.courtpool.objects.User;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AppManager {
 
@@ -57,6 +61,8 @@ public class AppManager {
     private EditText sign_up_EDT_password;
     private EditText sign_up_EDT_phone;
 
+
+    private ImageView get_started_IMG_tennis;
     private ImageView sign_up_IMG_addProfilePic;
     private ImageView court_type_IMG_cement;
     private ImageView court_type_IMG_grass;
@@ -118,7 +124,6 @@ public class AppManager {
     private CheckBox sign_in_CBX_rememberMe;
 
     private RecyclerView choose_location_LST_courtsLocations;
-    private RecyclerView matches_LST_matches;
 
     private boolean visibility = false;
     private int daysSelected = 0;
@@ -126,16 +131,29 @@ public class AppManager {
     public static final String GRASS = "grass";
     public static final String SYNTHETIC = "synthetic";
     public static final String CLAY = "clay";
+    public static User user = new User();
+
+    private Map<String, ArrayList<String>> playTime = new HashMap<>();
+    private ArrayList<String> sunday = new ArrayList<>();
+    private ArrayList<String> monday = new ArrayList<>();
+    private ArrayList<String> tuesday = new ArrayList<>();
+    private ArrayList<String> wednesday = new ArrayList<>();
+    private ArrayList<String> thursday = new ArrayList<>();
+    private ArrayList<String> friday = new ArrayList<>();
+    private ArrayList<String> saturday = new ArrayList<>();
 
 
     public AppManager(AppCompatActivity activity) {
 
     }
 
+
     public void findGetStartedViews(AppCompatActivity activity) {
         get_started_BTN_getStarted = activity.findViewById(R.id.get_started_BTN_getStarted);
         get_started_LBL_signIn = activity.findViewById(R.id.get_started_LBL_signIn);
+        get_started_IMG_tennis = activity.findViewById(R.id.get_started_IMG_tennis);
     }
+
 
     public void findSignInViews(AppCompatActivity activity) {
         sign_in_BTN_signIn = activity.findViewById(R.id.sign_in_BTN_signIn);
@@ -143,7 +161,6 @@ public class AppManager {
         sign_in_EDT_email = activity.findViewById(R.id.sign_in_EDT_email);
         sign_in_EDT_password = activity.findViewById(R.id.sign_in_EDT_password);
         sign_in_CBX_rememberMe = activity.findViewById(R.id.sign_in_CBX_rememberMe);
-
     }
 
     public void findSignUpViews(AppCompatActivity activity) {
@@ -155,11 +172,13 @@ public class AppManager {
         sign_up_LBL_play = activity.findViewById(R.id.sign_up_LBL_play);
     }
 
+
     public void findChooseLocationViews(AppCompatActivity activity) {
         choose_location_LBL_court = activity.findViewById(R.id.choose_location_LBL_court);
         choose_location_ACLBL_enterCity = activity.findViewById(R.id.choose_location_ACLBL_enterCity);
         choose_location_LST_courtsLocations = activity.findViewById(R.id.choose_location_LST_courtsLocations);
     }
+
 
     public void findCourtTypeViews(AppCompatActivity activity) {
         court_type_IMG_cement = activity.findViewById(R.id.court_type_IMG_cement);
@@ -234,43 +253,49 @@ public class AppManager {
     public void findMatchesViews(AppCompatActivity activity) {
         matches_BTN_matches = activity.findViewById(R.id.matches_BTN_matches);
         matches_BTN_profile = activity.findViewById(R.id.matches_BTN_profile);
-        matches_LST_matches = activity.findViewById(R.id.matches_LST_matches);
     }
 
 
     public void moveToSignUp(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignUpActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public void moveToSignIn(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignInActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public void moveToChooseLocation(AppCompatActivity activity) {
         Intent intent = new Intent(activity, ChooseLocationActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public void moveToCourtType(AppCompatActivity activity) {
         Intent intent = new Intent(activity, CourtTypeActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public void moveToSkill(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SkillActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public void moveToDayAndTime(AppCompatActivity activity) {
         Intent intent = new Intent(activity, DayAndTimeActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public void moveToMatches(AppCompatActivity activity) {
         Intent intent = new Intent(activity, MatchesActivity.class);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     public boolean showEye(EditText editText) {
@@ -306,7 +331,7 @@ public class AppManager {
                 isEmpty(sign_up_EDT_password) ||
                 isEmpty(sign_up_EDT_phone)) {
             return 0;
-        } else if (sign_up_EDT_name.getText().toString().trim().length() < 3) {
+        } else if (sign_up_EDT_name.getText().toString().trim().length() < 2) {
             return 1;
         } else if (isEmpty(sign_up_EDT_email) || !sign_up_EDT_email.getText().toString().contains("@")) {
             return 2;
@@ -354,96 +379,222 @@ public class AppManager {
         }
     }
 
-    public boolean checkMarkVisibility() {
-        return isVisible(court_type_IMG_checkMarkHard)
-                || isVisible(court_type_IMG_checkMarkGrass)
-                || isVisible(court_type_IMG_checkMarkSynthetic)
-                || isVisible(court_type_IMG_checkMarkClay);
+    public ArrayList<String> checkMarkVisibility() {
+        ArrayList<String> lst = new ArrayList<>();
+        if (isVisible(court_type_IMG_checkMarkHard)) {
+            lst.add("Cement");
+        }
+        if (isVisible(court_type_IMG_checkMarkGrass)) {
+            lst.add("Grass");
+        }
+        if (isVisible(court_type_IMG_checkMarkSynthetic)) {
+            lst.add("Synthetic");
+        }
+        if (isVisible(court_type_IMG_checkMarkClay)) {
+            lst.add("Clay");
+        }
+
+        return lst;
+
     }
 
     public boolean isVisible(ImageView imageView) {
         return imageView.getVisibility() == View.VISIBLE;
     }
 
-    public void tennisBallsAlpha(ImageView imageView) {
+    public boolean tennisBallsAlpha(ImageView imageView) {
         if (imageView.getImageAlpha() == 51) {
             imageView.setImageAlpha(255);
             daysSelected++;
+            return true;
         } else {
             imageView.setImageAlpha(51);
             daysSelected--;
+            return false;
         }
     }
 
 
     public void selectDay(int day) {
 
+        String MORNING = "morning";
+        String MID_DAY = "mid day";
+        String EVENING = "evening";
         switch (day) {
 
             case 1:
-                tennisBallsAlpha(day_and_time_IMG_sunday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_sunday_morning)) {
+                    sunday.add(MORNING);
+                } else {
+                    sunday.remove(MORNING);
+                }
                 break;
             case 2:
-                tennisBallsAlpha(day_and_time_IMG_sunday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_sunday_mid_day)) {
+                    sunday.add(MID_DAY);
+                } else {
+                    sunday.remove(MID_DAY);
+                }
                 break;
             case 3:
-                tennisBallsAlpha(day_and_time_IMG_sunday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_sunday_evening)) {
+                    sunday.add(EVENING);
+                } else {
+                    sunday.remove(EVENING);
+                }
                 break;
             case 4:
-                tennisBallsAlpha(day_and_time_IMG_monday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_monday_morning)) {
+                    monday.add(MORNING);
+                } else {
+                    monday.remove(MORNING);
+                }
                 break;
             case 5:
-                tennisBallsAlpha(day_and_time_IMG_monday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_monday_mid_day)) {
+                    monday.add(MID_DAY);
+                } else {
+                    monday.remove(MID_DAY);
+                }
                 break;
             case 6:
-                tennisBallsAlpha(day_and_time_IMG_monday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_monday_evening)) {
+                    monday.add(EVENING);
+                } else {
+                    monday.remove(EVENING);
+                }
                 break;
             case 7:
-                tennisBallsAlpha(day_and_time_IMG_tuesday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_tuesday_morning)) {
+                    tuesday.add(MORNING);
+                } else {
+                    tuesday.remove(MORNING);
+                }
                 break;
             case 8:
-                tennisBallsAlpha(day_and_time_IMG_tuesday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_tuesday_mid_day)) {
+                    tuesday.add(MID_DAY);
+                } else {
+                    tuesday.remove(MID_DAY);
+                }
                 break;
             case 9:
-                tennisBallsAlpha(day_and_time_IMG_tuesday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_tuesday_evening)) {
+                    tuesday.add(EVENING);
+                } else {
+                    tuesday.remove(EVENING);
+                }
                 break;
             case 10:
-                tennisBallsAlpha(day_and_time_IMG_wednesday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_wednesday_morning)) {
+                    wednesday.add(MORNING);
+                } else {
+                    wednesday.remove(MORNING);
+                }
                 break;
             case 11:
-                tennisBallsAlpha(day_and_time_IMG_wednesday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_wednesday_mid_day)) {
+                    wednesday.add(MID_DAY);
+                } else {
+                    wednesday.remove(MID_DAY);
+                }
                 break;
             case 12:
-                tennisBallsAlpha(day_and_time_IMG_wednesday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_wednesday_evening)) {
+                    wednesday.add(EVENING);
+                } else {
+                    wednesday.remove(EVENING);
+                }
                 break;
             case 13:
-                tennisBallsAlpha(day_and_time_IMG_thursday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_thursday_morning)) {
+                    thursday.add(MORNING);
+                } else {
+                    thursday.remove(MORNING);
+                }
                 break;
             case 14:
-                tennisBallsAlpha(day_and_time_IMG_thursday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_thursday_mid_day)) {
+                    thursday.add(MID_DAY);
+                } else {
+                    thursday.remove(MID_DAY);
+                }
                 break;
             case 15:
-                tennisBallsAlpha(day_and_time_IMG_thursday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_thursday_evening)) {
+                    thursday.add(EVENING);
+                } else {
+                    thursday.remove(EVENING);
+                }
                 break;
             case 16:
-                tennisBallsAlpha(day_and_time_IMG_friday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_friday_morning)) {
+                    friday.add(MORNING);
+                } else {
+                    friday.remove(MORNING);
+                }
                 break;
             case 17:
-                tennisBallsAlpha(day_and_time_IMG_friday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_friday_mid_day)) {
+                    friday.add(MID_DAY);
+                } else {
+                    friday.remove(MID_DAY);
+                }
                 break;
             case 18:
-                tennisBallsAlpha(day_and_time_IMG_friday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_friday_evening)) {
+                    friday.add(EVENING);
+                } else {
+                    friday.remove(EVENING);
+                }
                 break;
             case 19:
-                tennisBallsAlpha(day_and_time_IMG_saturday_morning);
+                if (tennisBallsAlpha(day_and_time_IMG_saturday_morning)) {
+                    saturday.add(MORNING);
+                } else {
+                    saturday.remove(MORNING);
+                }
                 break;
             case 20:
-                tennisBallsAlpha(day_and_time_IMG_saturday_mid_day);
+                if (tennisBallsAlpha(day_and_time_IMG_saturday_mid_day)) {
+                    saturday.add(MID_DAY);
+                } else {
+                    saturday.remove(MID_DAY);
+                }
                 break;
             case 21:
-                tennisBallsAlpha(day_and_time_IMG_saturday_evening);
+                if (tennisBallsAlpha(day_and_time_IMG_saturday_evening)) {
+                    saturday.add(EVENING);
+                } else {
+                    saturday.remove(EVENING);
+                }
                 break;
         }
+    }
+
+    public void updateMap() {
+        if (!sunday.isEmpty()) {
+            playTime.put("sunday", sunday);
+        }
+        if (!monday.isEmpty()) {
+            playTime.put("monday", monday);
+        }
+        if (!tuesday.isEmpty()) {
+            playTime.put("tuesday", tuesday);
+        }
+        if (!wednesday.isEmpty()) {
+            playTime.put("wednesday", wednesday);
+        }
+        if (!thursday.isEmpty()) {
+            playTime.put("thursday", thursday);
+        }
+        if (!friday.isEmpty()) {
+            playTime.put("friday", friday);
+        }
+        if (!saturday.isEmpty()) {
+            playTime.put("saturday", saturday);
+        }
+
     }
 
 
@@ -480,11 +631,14 @@ public class AppManager {
         }
     }
 
-    public boolean checkImageAlpha() {
-        return skill_IMG_level_one.getImageAlpha() == 255 ||
-                skill_IMG_level_two.getImageAlpha() == 255 ||
-                skill_IMG_level_three.getImageAlpha() == 255;
-
+    public String checkImageAlpha() {
+        if (skill_IMG_level_one.getImageAlpha() == 255) {
+            return "Advanced";
+        } else if (skill_IMG_level_two.getImageAlpha() == 255) {
+            return "Intermediate";
+        } else {
+            return "Beginner";
+        }
     }
 
     public boolean checkDaySelected() {
@@ -546,6 +700,9 @@ public class AppManager {
         return arrayList;
     }
 
+    public TextView getGet_started_LBL_signIn() {
+        return get_started_LBL_signIn;
+    }
 
     public Button getGet_started_BTN_getStarted() {
         return get_started_BTN_getStarted;
@@ -553,10 +710,6 @@ public class AppManager {
 
     public Button getSign_in_BTN_signIn() {
         return sign_in_BTN_signIn;
-    }
-
-    public TextView getGet_started_LBL_signIn() {
-        return get_started_LBL_signIn;
     }
 
     public TextView getSign_in_LBL_signUp() {
@@ -573,6 +726,18 @@ public class AppManager {
 
     public CheckBox getSign_in_CBX_rememberMe() {
         return sign_in_CBX_rememberMe;
+    }
+
+    public EditText getSign_up_EDT_name() {
+        return sign_up_EDT_name;
+    }
+
+    public EditText getSign_up_EDT_email() {
+        return sign_up_EDT_email;
+    }
+
+    public EditText getSign_up_EDT_phone() {
+        return sign_up_EDT_phone;
     }
 
     public TextView getSign_up_LBL_play() {
@@ -722,4 +887,11 @@ public class AppManager {
     public LinearLayout getDay_and_time_LAY_saturday_evening() {
         return day_and_time_LAY_saturday_evening;
     }
+
+
+    public Map<String, ArrayList<String>> getUpdatedMap() {
+        return playTime;
+    }
+
+
 }

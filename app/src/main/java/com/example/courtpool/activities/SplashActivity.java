@@ -1,4 +1,3 @@
-
 package com.example.courtpool.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
 
 import com.example.courtpool.R;
 
@@ -21,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, GetStartedActivity.class);
             startActivity(intent);
-        }, 1500);
-
+            finish();
+        }, 1000);
     }
 }

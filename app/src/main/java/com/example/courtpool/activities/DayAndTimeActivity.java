@@ -1,28 +1,42 @@
 package com.example.courtpool.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DayAndTimeActivity extends AppCompatActivity {
 
 
-    AppManager manager;
+    private AppManager manager;
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Courtpool);
         setContentView(R.layout.activity_day_and_time);
 
         manager = new AppManager(this);
         manager.findDayAndTimeViews(this);
         manager.setBallAlpha();
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         LinearLayout morningSunday = manager.getDay_and_time_LAY_sunday_morning();
         morningSunday.setOnClickListener(v -> manager.selectDay(1));
@@ -91,15 +105,33 @@ public class DayAndTimeActivity extends AppCompatActivity {
         moveToMatches.setOnClickListener(v -> {
 
             if (manager.checkDaySelected()) {
-                manager.moveToMatches(this);
+                manager.updateMap();
+                AppManager.user.setPlayTime(manager.getUpdatedMap());
+                fAuth.createUserWithEmailAndPassword(AppManager.user.getEmail(), AppManager.user.getPassword())
+                        .addOnSuccessListener(authResult -> {
+                            Toast.makeText(this, "User created", Toast.LENGTH_SHORT).show();
+                            addUserToDB();
+                            manager.moveToMatches(this);
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
             } else {
-                Toast.makeText(this,
-                        "Please choose at least one day",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please choose at least one day", Toast.LENGTH_LONG).show();
             }
-
-
         });
+    }
+
+    public void addUserToDB() {
+        userID = fAuth.getCurrentUser().getUid();
+        DocumentReference documentReference = fStore.collection("users").document(userID);
+        documentReference.set(AppManager.user)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("ptt", "onSuccess: user profile is created for " + userID);
+                })
+                .addOnFailureListener(e -> {
+                    Log.d("ptt", "onFailure: " + e.toString());
+                });
 
     }
 }

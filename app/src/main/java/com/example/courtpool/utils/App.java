@@ -1,4 +1,4 @@
-package com.example.courtpool.utilities;
+package com.example.courtpool.utils;
 
 import android.app.Application;
 
@@ -10,7 +10,6 @@ public class App extends Application {
         super.onCreate();
 
         SPManager.init(this);
-        Signal.init(this);
 
     }
 }

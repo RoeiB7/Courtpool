@@ -7,22 +7,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 public class CourtTypeActivity extends AppCompatActivity {
 
 
     private AppManager manager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Courtpool);
         setContentView(R.layout.activity_court_type);
 
         manager = new AppManager(this);
         manager.findCourtTypeViews(this);
+        initViews();
+
+    }
+
+    public void initViews() {
 
         ImageView cement = manager.getCourt_type_IMG_cement();
         cement.setOnClickListener(v -> manager.checkMarkOn(AppManager.CEMENT));
@@ -38,12 +48,12 @@ public class CourtTypeActivity extends AppCompatActivity {
 
         TextView moveToSkills = manager.getCourt_type_LBL_skill();
         moveToSkills.setOnClickListener(v -> {
-            if (manager.checkMarkVisibility()) {
+            ArrayList<String> courtType = manager.checkMarkVisibility();
+            if (!courtType.isEmpty()) {
+                AppManager.user.setCourtTypes(courtType);
                 manager.moveToSkill(this);
             } else {
-                Toast.makeText(this,
-                        "Please choose one or more court types",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please choose one or more court types", Toast.LENGTH_LONG).show();
             }
         });
     }

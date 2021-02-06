@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.courtpool.utilities.AppManager;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
 
 public class SkillActivity extends AppCompatActivity {
@@ -17,6 +17,7 @@ public class SkillActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Courtpool);
         setContentView(R.layout.activity_skill);
 
 
@@ -35,12 +36,11 @@ public class SkillActivity extends AppCompatActivity {
 
         TextView moveToTime = manager.getSkill_LBL_when_playing();
         moveToTime.setOnClickListener(v -> {
-            if (manager.checkImageAlpha()) {
+            if (manager.checkImageAlpha().length() != 0) {
+                AppManager.user.setSkill(manager.checkImageAlpha());
                 manager.moveToDayAndTime(this);
             } else {
-                Toast.makeText(this,
-                        "Please choose one skill level",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please choose one skill level", Toast.LENGTH_LONG).show();
             }
 
         });

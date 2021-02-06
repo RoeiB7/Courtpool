@@ -4,6 +4,7 @@ public class Court {
 
     String name;
     String address;
+    Boolean checked = false;
 
     public Court() {
 
@@ -28,5 +29,13 @@ public class Court {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
     }
 }

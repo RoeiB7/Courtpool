@@ -1,4 +1,4 @@
-package com.example.courtpool.utilities;
+package com.example.courtpool.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

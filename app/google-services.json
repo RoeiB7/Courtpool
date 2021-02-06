@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "532074627762",
+    "project_id": "courtpool-ee979",
+    "storage_bucket": "courtpool-ee979.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532074627762:android:30fe34d53d6df078153fab",
+        "android_client_info": {
+          "package_name": "com.example.courtpool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532074627762-srltcnvt8cftija5liqj0nrqoimrl7ei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.courtpool",
+            "certificate_hash": "52c22072603dd6cd73e37af4e9e99e1afb755cf8"
+          }
+        },
+        {
+          "client_id": "532074627762-9a5r98545048r1utsbsgu1mf6rtqrvbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyz6PBSjtScHmPWyRvAbjGlCFsOIV8tTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532074627762-9a5r98545048r1utsbsgu1mf6rtqrvbh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
