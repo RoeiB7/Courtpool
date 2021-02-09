@@ -131,7 +131,6 @@ public class AppManager {
     public static final String GRASS = "grass";
     public static final String SYNTHETIC = "synthetic";
     public static final String CLAY = "clay";
-    public static User user = new User();
 
     private Map<String, ArrayList<String>> playTime = new HashMap<>();
     private ArrayList<String> sunday = new ArrayList<>();
@@ -259,7 +258,6 @@ public class AppManager {
     public void moveToSignUp(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignUpActivity.class);
         activity.startActivity(intent);
-        activity.finish();
     }
 
     public void moveToSignIn(AppCompatActivity activity) {

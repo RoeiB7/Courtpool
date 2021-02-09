@@ -3,12 +3,14 @@ package com.example.courtpool.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
+import com.example.courtpool.utils.FBManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,6 +21,7 @@ public class CourtTypeActivity extends AppCompatActivity {
 
 
     private AppManager manager;
+    private FBManager fbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class CourtTypeActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findCourtTypeViews(this);
+        fbManager = new FBManager();
+
         initViews();
 
     }
@@ -50,8 +55,18 @@ public class CourtTypeActivity extends AppCompatActivity {
         moveToSkills.setOnClickListener(v -> {
             ArrayList<String> courtType = manager.checkMarkVisibility();
             if (!courtType.isEmpty()) {
-                AppManager.user.setCourtTypes(courtType);
-                manager.moveToSkill(this);
+                DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
+                documentReference.update("courtType", courtType)
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("ptt", "user updated - court type");
+                            manager.moveToSkill(this);
+                        })
+
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
+
+
             } else {
                 Toast.makeText(this, "Please choose one or more court types", Toast.LENGTH_LONG).show();
             }

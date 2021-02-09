@@ -10,7 +10,7 @@ public class User {
     private String email;
     private String password;
     private String phone;
-    private ArrayList<String> courtLocation;
+    private ArrayList<String> courtLocation = new ArrayList<>();
     private ArrayList<String> courtTypes = new ArrayList<>();
     private String skill;
     private Map<String, ArrayList<String>> playTime = new HashMap<>();

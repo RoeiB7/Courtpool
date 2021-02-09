@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
+import com.example.courtpool.utils.FBManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -22,9 +23,8 @@ public class DayAndTimeActivity extends AppCompatActivity {
 
 
     private AppManager manager;
-    private FirebaseAuth fAuth;
-    private FirebaseFirestore fStore;
-    private String userID;
+    private FBManager fbManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,9 @@ public class DayAndTimeActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findDayAndTimeViews(this);
         manager.setBallAlpha();
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+
+        fbManager = new FBManager();
+
 
         LinearLayout morningSunday = manager.getDay_and_time_LAY_sunday_morning();
         morningSunday.setOnClickListener(v -> manager.selectDay(1));
@@ -106,13 +107,14 @@ public class DayAndTimeActivity extends AppCompatActivity {
 
             if (manager.checkDaySelected()) {
                 manager.updateMap();
-                AppManager.user.setPlayTime(manager.getUpdatedMap());
-                fAuth.createUserWithEmailAndPassword(AppManager.user.getEmail(), AppManager.user.getPassword())
-                        .addOnSuccessListener(authResult -> {
-                            Toast.makeText(this, "User created", Toast.LENGTH_SHORT).show();
-                            addUserToDB();
+
+                DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
+                documentReference.update("playTime", manager.getUpdatedMap())
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("ptt", "user updated - time and day");
                             manager.moveToMatches(this);
                         })
+
                         .addOnFailureListener(e -> {
                             Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         });
@@ -122,16 +124,5 @@ public class DayAndTimeActivity extends AppCompatActivity {
         });
     }
 
-    public void addUserToDB() {
-        userID = fAuth.getCurrentUser().getUid();
-        DocumentReference documentReference = fStore.collection("users").document(userID);
-        documentReference.set(AppManager.user)
-                .addOnSuccessListener(aVoid -> {
-                    Log.d("ptt", "onSuccess: user profile is created for " + userID);
-                })
-                .addOnFailureListener(e -> {
-                    Log.d("ptt", "onFailure: " + e.toString());
-                });
 
-    }
 }

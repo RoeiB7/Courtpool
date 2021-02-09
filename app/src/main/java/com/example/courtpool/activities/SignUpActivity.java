@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.example.courtpool.objects.User;
 import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
+import com.example.courtpool.utils.Courts_Creator;
+import com.example.courtpool.utils.FBManager;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,8 +37,8 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean eye = false;
     private boolean crossEye = false;
     private final int DRAWABLE_RIGHT = 2;
+    private FBManager fbManager;
 
-    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findSignUpViews(this);
+        fbManager = new FBManager();
         initViews();
+
 
     }
 
@@ -125,14 +129,38 @@ public class SignUpActivity extends AppCompatActivity {
                     phone.setError("Your phone number must contain 10 digits");
                     break;
                 case 5:
-                    AppManager.user.setName(name.getText().toString().trim());
-                    AppManager.user.setEmail(email.getText().toString().trim());
-                    AppManager.user.setPassword(password.getText().toString().trim());
-                    AppManager.user.setPhone(phone.getText().toString().trim());
-                    manager.moveToChooseLocation(this);
+                    fbManager.getFirebaseAuth().createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
+                            .addOnSuccessListener(authResult -> {
+                                Log.d("ptt", "user created");
+                                addUserToDB();
+                                Courts_Creator courts_creator = new Courts_Creator();
+                                courts_creator.createCourts();
+                                manager.moveToChooseLocation(this);
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            });
                     break;
 
             }
         });
+    }
+
+    public void addUserToDB() {
+        DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
+        Map<String, Object> user = new HashMap<>();
+        user.put("fullName", name.getText().toString().trim());
+        user.put("email", email.getText().toString().trim());
+        user.put("password", password.getText().toString().trim());
+        user.put("phoneNumber", phone.getText().toString().trim());
+
+        documentReference.set(user)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("ptt", "onSuccess: user profile is created for " + fbManager.getUserID());
+                })
+                .addOnFailureListener(e -> {
+                    Log.d("ptt", "onFailure: " + e.toString());
+                });
+
     }
 }

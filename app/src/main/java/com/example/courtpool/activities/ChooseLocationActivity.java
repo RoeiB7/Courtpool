@@ -1,34 +1,43 @@
 package com.example.courtpool.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.courtpool.R;
 import com.example.courtpool.objects.Court;
 import com.example.courtpool.utils.Adapter_Court;
 import com.example.courtpool.utils.AppManager;
-import com.example.courtpool.R;
+import com.example.courtpool.utils.FBManager;
+import com.google.firebase.firestore.DocumentReference;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class ChooseLocationActivity extends AppCompatActivity {
 
 
     private AppManager manager;
-    private AutoCompleteTextView editText;
+    private AutoCompleteTextView autoCompleteTextView;
     private RecyclerView choose_location_LST_courtsLocations;
     private ArrayList<Court> courts;
-    private ArrayList<String> courtsName = new ArrayList<>();
+    private ArrayList<Court> checkedCourts = new ArrayList<>();
+    private ArrayList<String> fsCourts = new ArrayList<>();
     private Adapter_Court adapter_court;
+    private FBManager fbManager;
+    private String selectedCity;
 
 
     @Override
@@ -38,56 +47,100 @@ public class ChooseLocationActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findChooseLocationViews(this);
-        editText = manager.getChoose_location_ACLBL_enterCity();
-        choose_location_LST_courtsLocations = manager.getChoose_location_LST_courtsLocations();
+        fbManager = new FBManager();
 
+        autoCompleteTextView = manager.getChoose_location_ACLBL_enterCity();
+        choose_location_LST_courtsLocations = manager.getChoose_location_LST_courtsLocations();
+        courts = new ArrayList<>();
 
         ArrayList<String> cities = new ArrayList<>();
         cities = manager.jsonToList(this, "israel_cities.json", "english_name", cities);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cities);
-        editText.setAdapter(adapter);
+        autoCompleteTextView.setAdapter(adapter);
 
-        courts = new ArrayList<>();
-        //TODO: ADD COURTS TO LIST FROM DB
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        courts.add(new Court("Tel Aviv Tennis Center", "Zvi Nishri St 6, Tel Aviv-Yafo, Israel"));
-        courts.add(new Court("Hadar Yosef Tennis Center", "Bekhor Shalom Shitrit St 2, Tel Aviv-Yafo, Israel"));
-        courts.add(new Court("Gani Yehushua Tennis Center", "Rokach Blvd 67, Tel Aviv-Yafo, Israel"));
-        courts.add(new Court("Maccabi Tennis Club", "Rokach Blvd 73, Tel Aviv-Yafo, Israel"));
-        courts.add(new Court("TAU Tennis Club", "Chaim Levanon St 62, Tel Aviv-Yafo, Israel"));
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().isEmpty()) {
+                    Log.d("ptt", "auto complete is empty");
+                    courts.clear();
+                    adapter_court = new Adapter_Court(ChooseLocationActivity.this, courts);
+                    choose_location_LST_courtsLocations.setLayoutManager(new LinearLayoutManager(ChooseLocationActivity.this));
+                    choose_location_LST_courtsLocations.setAdapter(adapter_court);
 
-        adapter_court = new Adapter_Court(this, courts);
-        adapter_court.setClickListener((view, position) -> {
-            Toast.makeText(this, courts.get(position).getName(), Toast.LENGTH_SHORT).show();
-            courts.get(position).setChecked(!courts.get(position).getChecked());
-            adapter_court.updateOneItem(position);
+                } else {
+                    courts.clear();
+                    autoCompleteTextView.setOnItemClickListener((parent, view, position, id) -> {
+                        selectedCity = autoCompleteTextView.getAdapter().getItem(position).toString();
+
+                        DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("cities").document("city");
+                        documentReference.addSnapshotListener(ChooseLocationActivity.this, (documentSnapshot, error) -> {
+                            if (error != null) {
+                                Log.d("ptt", "Listen failed.", error);
+                                return;
+                            }
+                            if (documentSnapshot != null && documentSnapshot.exists()) {
+                                Map<String, Object> map = documentSnapshot.getData();
+
+                                fsCourts = (ArrayList<String>) map.get(selectedCity);
+                                if (fsCourts != null) {
+                                    for (int i = 0; i < fsCourts.size(); i = i + 2) {
+                                        courts.add(new Court(fsCourts.get(i), fsCourts.get(i + 1)));
+                                    }
+                                }
+                            } else {
+                                Log.d("ptt", "Current data: null");
+                            }
+                        });
+                        adapter_court = new Adapter_Court(ChooseLocationActivity.this, courts);
+                        adapter_court.setClickListener(new Adapter_Court.ItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                courts.get(position).setChecked(!courts.get(position).getChecked());
+                                adapter_court.updateOneItem(position);
+                            }
+                        });
+                        choose_location_LST_courtsLocations.setLayoutManager(new LinearLayoutManager(ChooseLocationActivity.this));
+                        choose_location_LST_courtsLocations.setAdapter(adapter_court);
+                    });
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
         });
-
-        choose_location_LST_courtsLocations.setLayoutManager(new LinearLayoutManager(this));
-        choose_location_LST_courtsLocations.setAdapter(adapter_court);
 
 
         TextView courtType = manager.getChoose_location_LBL_court();
         courtType.setOnClickListener(v -> {
             for (int i = 0; i < courts.size(); i++) {
                 if (courts.get(i).getChecked()) {
-                    courtsName.add(courts.get(i).getName());
+                    checkedCourts.add(courts.get(i));
                 }
             }
-            if (!courtsName.isEmpty()) {
-                Log.d("ptt", "courts name list not empty");
-                AppManager.user.setCourtLocation(courtsName);
-                manager.moveToCourtType(ChooseLocationActivity.this);
+            if (!checkedCourts.isEmpty()) {
+                DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
+                documentReference.update("courtLocation", checkedCourts)
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("ptt", "user updated - location");
+                            manager.moveToCourtType(this);
+                        })
+
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
+
             } else {
-                Log.d("ptt", "courts name list is empty");
                 Toast.makeText(this, "Please choose at least one court", Toast.LENGTH_SHORT).show();
             }
         });
-
-
     }
-
-
 }

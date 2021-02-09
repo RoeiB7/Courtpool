@@ -19,6 +19,7 @@ public class GetStartedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_started);
 
+
         manager = new AppManager(this);
         manager.findGetStartedViews(this);
 
