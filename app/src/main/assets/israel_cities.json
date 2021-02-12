@@ -453,7 +453,7 @@
   {
     "semel_yeshuv": "31",
     "name": "אופקים",
-    "english_name": "OFAQIM",
+    "english_name": "OFAKIM",
     "semel_napa": "62",
     "shem_napa": "באר שבע",
     "semel_lishkat_mana": "62",
@@ -1432,7 +1432,7 @@
   {
     "semel_yeshuv": "7100",
     "name": "אשקלון",
-    "english_name": "ASHQELON",
+    "english_name": "ASHKELON",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -3522,7 +3522,7 @@
   {
     "semel_yeshuv": "1103",
     "name": "גני הדר",
-    "english_name": "GANNE HADAR",
+    "english_name": "GANEI HADAR",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -3544,7 +3544,7 @@
   {
     "semel_yeshuv": "862",
     "name": "גני יוחנן",
-    "english_name": "GANNE YOHANAN",
+    "english_name": "GANEI YOHANAN",
     "semel_napa": "44",
     "shem_napa": "רחובות",
     "semel_lishkat_mana": "44",
@@ -3555,7 +3555,7 @@
   {
     "semel_yeshuv": "3823",
     "name": "גני מודיעין",
-    "english_name": "GANNE MODIIN",
+    "english_name": "GANEI MODIIN",
     "semel_napa": "74",
     "shem_napa": "ראמאללה",
     "semel_lishkat_mana": "11",
@@ -3566,7 +3566,7 @@
   {
     "semel_yeshuv": "218",
     "name": "גני עם",
-    "english_name": "GANNE AM",
+    "english_name": "GANEI AM",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "47",
@@ -3577,7 +3577,7 @@
   {
     "semel_yeshuv": "229",
     "name": "גני תקווה",
-    "english_name": "GANNE TIQWA",
+    "english_name": "GANEI TIKVA",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "42",
@@ -4204,7 +4204,7 @@
   {
     "semel_yeshuv": "6400",
     "name": "הרצליה",
-    "english_name": "HERZELIYYA",
+    "english_name": "HERZLIYA",
     "semel_napa": "51",
     "shem_napa": "תל אביב",
     "semel_lishkat_mana": "57",
@@ -6118,7 +6118,7 @@
   {
     "semel_yeshuv": "857",
     "name": "כפר אביב",
-    "english_name": "KEFAR AVIV",
+    "english_name": "KFAR AVIV",
     "semel_napa": "44",
     "shem_napa": "רחובות",
     "semel_lishkat_mana": "44",
@@ -6129,7 +6129,7 @@
   {
     "semel_yeshuv": "3638",
     "name": "כפר אדומים",
-    "english_name": "KEFAR ADUMMIM",
+    "english_name": "KFAR ADUMMIM",
     "semel_napa": "74",
     "shem_napa": "ראמאללה",
     "semel_lishkat_mana": "11",
@@ -6140,7 +6140,7 @@
   {
     "semel_yeshuv": "364",
     "name": "כפר אוריה",
-    "english_name": "KEFAR URIYYA",
+    "english_name": "KFAR URIYYA",
     "semel_napa": "11",
     "shem_napa": "ירושלים",
     "semel_lishkat_mana": "13",
@@ -6151,7 +6151,7 @@
   {
     "semel_yeshuv": "690",
     "name": "כפר אחים",
-    "english_name": "KEFAR AHIM",
+    "english_name": "KFAR AHIM",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -6162,7 +6162,7 @@
   {
     "semel_yeshuv": "220",
     "name": "כפר ביאליק",
-    "english_name": "KEFAR BIALIK",
+    "english_name": "KFAR BIALIK",
     "semel_napa": "31",
     "shem_napa": "חיפה",
     "semel_lishkat_mana": "31",
@@ -6173,7 +6173,7 @@
   {
     "semel_yeshuv": "177",
     "name": "כפר ביל\"ו",
-    "english_name": "KEFAR BILU",
+    "english_name": "KFAR BILU",
     "semel_napa": "44",
     "shem_napa": "רחובות",
     "semel_lishkat_mana": "44",
@@ -6184,7 +6184,7 @@
   {
     "semel_yeshuv": "357",
     "name": "כפר בלום",
-    "english_name": "KEFAR BLUM",
+    "english_name": "KFAR BLUM",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6195,7 +6195,7 @@
   {
     "semel_yeshuv": "2010",
     "name": "כפר בן נון",
-    "english_name": "KEFAR BIN NUN",
+    "english_name": "KFAR BIN NUN",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -6217,7 +6217,7 @@
   {
     "semel_yeshuv": "132",
     "name": "כפר ברוך",
-    "english_name": "KEFAR BARUKH",
+    "english_name": "KFAR BARUKH",
     "semel_napa": "23",
     "shem_napa": "עפולה",
     "semel_lishkat_mana": "23",
@@ -6228,7 +6228,7 @@
   {
     "semel_yeshuv": "106",
     "name": "כפר גדעון",
-    "english_name": "KEFAR GID'ON",
+    "english_name": "KFAR GID'ON",
     "semel_napa": "23",
     "shem_napa": "עפולה",
     "semel_lishkat_mana": "23",
@@ -6239,7 +6239,7 @@
   {
     "semel_yeshuv": "427",
     "name": "כפר גלים",
-    "english_name": "KEFAR GALLIM",
+    "english_name": "KFAR GALLIM",
     "semel_napa": "31",
     "shem_napa": "חיפה",
     "semel_lishkat_mana": "31",
@@ -6250,7 +6250,7 @@
   {
     "semel_yeshuv": "310",
     "name": "כפר גליקסון",
-    "english_name": "KEFAR GLIKSON",
+    "english_name": "KFAR GLIKSON",
     "semel_napa": "32",
     "shem_napa": "חדרה",
     "semel_lishkat_mana": "32",
@@ -6261,7 +6261,7 @@
   {
     "semel_yeshuv": "76",
     "name": "כפר גלעדי",
-    "english_name": "KEFAR GIL'ADI",
+    "english_name": "KFAR GIL'ADI",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6272,7 +6272,7 @@
   {
     "semel_yeshuv": "707",
     "name": "כפר דניאל",
-    "english_name": "KEFAR DANIYYEL",
+    "english_name": "KFAR DANIYYEL",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -6283,7 +6283,7 @@
   {
     "semel_yeshuv": "3796",
     "name": "כפר האורנים",
-    "english_name": "KEFAR HAORANIM",
+    "english_name": "KFAR HAORANIM",
     "semel_napa": "74",
     "shem_napa": "ראמאללה",
     "semel_lishkat_mana": "11",
@@ -6294,7 +6294,7 @@
   {
     "semel_yeshuv": "192",
     "name": "כפר החורש",
-    "english_name": "KEFAR HAHORESH",
+    "english_name": "KFAR HAHORESH",
     "semel_napa": "23",
     "shem_napa": "עפולה",
     "semel_lishkat_mana": "23",
@@ -6305,7 +6305,7 @@
   {
     "semel_yeshuv": "254",
     "name": "כפר המכבי",
-    "english_name": "KEFAR HAMAKKABI",
+    "english_name": "KFAR HAMAKKABI",
     "semel_napa": "31",
     "shem_napa": "חיפה",
     "semel_lishkat_mana": "31",
@@ -6316,7 +6316,7 @@
   {
     "semel_yeshuv": "582",
     "name": "כפר הנגיד",
-    "english_name": "KEFAR HANAGID",
+    "english_name": "KFAR HANAGID",
     "semel_napa": "44",
     "shem_napa": "רחובות",
     "semel_lishkat_mana": "44",
@@ -6327,7 +6327,7 @@
   {
     "semel_yeshuv": "890",
     "name": "כפר הנוער הדתי",
-    "english_name": "KEFAR HANO'AR HADATI",
+    "english_name": "KFAR HANO'AR HADATI",
     "semel_napa": "31",
     "shem_napa": "חיפה",
     "semel_lishkat_mana": "31",
@@ -6338,7 +6338,7 @@
   {
     "semel_yeshuv": "443",
     "name": "כפר הנשיא",
-    "english_name": "KEFAR HANASI",
+    "english_name": "KFAR HANASI",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6349,7 +6349,7 @@
   {
     "semel_yeshuv": "187",
     "name": "כפר הס",
-    "english_name": "KEFAR HESS",
+    "english_name": "KFAR HESS",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6360,7 +6360,7 @@
   {
     "semel_yeshuv": "217",
     "name": "כפר הרא\"ה",
-    "english_name": "KEFAR HARO'E",
+    "english_name": "KFAR HARO'E",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "32",
@@ -6371,7 +6371,7 @@
   {
     "semel_yeshuv": "888",
     "name": "כפר הרי\"ף",
-    "english_name": "KEFAR HARIF",
+    "english_name": "KFAR HARIF",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -6382,7 +6382,7 @@
   {
     "semel_yeshuv": "190",
     "name": "כפר ויתקין",
-    "english_name": "KEFAR VITKIN",
+    "english_name": "KFAR VITKIN",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6393,7 +6393,7 @@
   {
     "semel_yeshuv": "320",
     "name": "כפר ורבורג",
-    "english_name": "KEFAR WARBURG",
+    "english_name": "KFAR WARBURG",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -6404,7 +6404,7 @@
   {
     "semel_yeshuv": "1263",
     "name": "כפר ורדים",
-    "english_name": "KEFAR WERADIM",
+    "english_name": "KFAR WERADIM",
     "semel_napa": "24",
     "shem_napa": "עכו",
     "semel_lishkat_mana": "24",
@@ -6415,7 +6415,7 @@
   {
     "semel_yeshuv": "1325",
     "name": "כפר זוהרים",
-    "english_name": "KEFAR ZOHARIM",
+    "english_name": "KFAR ZOHARIM",
     "semel_napa": "11",
     "shem_napa": "ירושלים",
     "semel_lishkat_mana": "13",
@@ -6426,7 +6426,7 @@
   {
     "semel_yeshuv": "786",
     "name": "כפר זיתים",
-    "english_name": "KEFAR ZETIM",
+    "english_name": "KFAR ZETIM",
     "semel_napa": "22",
     "shem_napa": "כנרת",
     "semel_lishkat_mana": "22",
@@ -6437,7 +6437,7 @@
   {
     "semel_yeshuv": "696",
     "name": "כפר חב\"ד",
-    "english_name": "KEFAR HABAD",
+    "english_name": "KFAR HABAD",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -6448,7 +6448,7 @@
   {
     "semel_yeshuv": "609",
     "name": "כפר חושן",
-    "english_name": "KEFAR HOSHEN",
+    "english_name": "KFAR HOSHEN",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6459,7 +6459,7 @@
   {
     "semel_yeshuv": "255",
     "name": "כפר חיטים",
-    "english_name": "KEFAR HITTIM",
+    "english_name": "KFAR HITTIM",
     "semel_napa": "22",
     "shem_napa": "כנרת",
     "semel_lishkat_mana": "22",
@@ -6470,7 +6470,7 @@
   {
     "semel_yeshuv": "193",
     "name": "כפר חיים",
-    "english_name": "KEFAR HAYYIM",
+    "english_name": "KFAR HAYYIM",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6481,7 +6481,7 @@
   {
     "semel_yeshuv": "1297",
     "name": "כפר חנניה",
-    "english_name": "KEFAR HANANYA",
+    "english_name": "KFAR HANANYA",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6492,7 +6492,7 @@
   {
     "semel_yeshuv": "112",
     "name": "כפר חסידים א'",
-    "english_name": "KEFAR HASIDIM ALEF",
+    "english_name": "KFAR HASIDIM ALEF",
     "semel_napa": "31",
     "shem_napa": "חיפה",
     "semel_lishkat_mana": "31",
@@ -6503,7 +6503,7 @@
   {
     "semel_yeshuv": "889",
     "name": "כפר חסידים ב'",
-    "english_name": "KEFAR HASIDIM BET",
+    "english_name": "KFAR HASIDIM BET",
     "semel_napa": "31",
     "shem_napa": "חיפה",
     "semel_lishkat_mana": "31",
@@ -6514,7 +6514,7 @@
   {
     "semel_yeshuv": "4004",
     "name": "כפר חרוב",
-    "english_name": "KEFAR HARUV",
+    "english_name": "KFAR HARUV",
     "semel_napa": "29",
     "shem_napa": "גולן",
     "semel_lishkat_mana": "22",
@@ -6525,7 +6525,7 @@
   {
     "semel_yeshuv": "673",
     "name": "כפר טרומן",
-    "english_name": "KEFAR TRUMAN",
+    "english_name": "KFAR TRUMAN",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -6558,7 +6558,7 @@
   {
     "semel_yeshuv": "140",
     "name": "כפר יהושע",
-    "english_name": "KEFAR YEHOSHUA",
+    "english_name": "KFAR YEHOSHUA",
     "semel_napa": "23",
     "shem_napa": "עפולה",
     "semel_lishkat_mana": "23",
@@ -6569,7 +6569,7 @@
   {
     "semel_yeshuv": "168",
     "name": "כפר יונה",
-    "english_name": "KEFAR YONA",
+    "english_name": "KFAR YONA",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6580,7 +6580,7 @@
   {
     "semel_yeshuv": "85",
     "name": "כפר יחזקאל",
-    "english_name": "KEFAR YEHEZQEL",
+    "english_name": "KFAR YEHEZQEL",
     "semel_napa": "23",
     "shem_napa": "עפולה",
     "semel_lishkat_mana": "23",
@@ -6591,7 +6591,7 @@
   {
     "semel_yeshuv": "170",
     "name": "כפר יעבץ",
-    "english_name": "KEFAR YA'BEZ",
+    "english_name": "KFAR YA'BEZ",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6624,7 +6624,7 @@
   {
     "semel_yeshuv": "387",
     "name": "כפר מונש",
-    "english_name": "KEFAR MONASH",
+    "english_name": "KFAR MONASH",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6635,7 +6635,7 @@
   {
     "semel_yeshuv": "1095",
     "name": "כפר מימון",
-    "english_name": "KEFAR MAYMON",
+    "english_name": "KFAR MAYMON",
     "semel_napa": "62",
     "shem_napa": "באר שבע",
     "semel_lishkat_mana": "62",
@@ -6646,7 +6646,7 @@
   {
     "semel_yeshuv": "98",
     "name": "כפר מל\"ל",
-    "english_name": "KEFAR MALAL",
+    "english_name": "KFAR MALAL",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "47",
@@ -6668,7 +6668,7 @@
   {
     "semel_yeshuv": "274",
     "name": "כפר מנחם",
-    "english_name": "KEFAR MENAHEM",
+    "english_name": "KFAR MENAHEM",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -6679,7 +6679,7 @@
   {
     "semel_yeshuv": "297",
     "name": "כפר מסריק",
-    "english_name": "KEFAR MASARYK",
+    "english_name": "KFAR MASARYK",
     "semel_napa": "24",
     "shem_napa": "עכו",
     "semel_lishkat_mana": "24",
@@ -6701,7 +6701,7 @@
   {
     "semel_yeshuv": "764",
     "name": "כפר מרדכי",
-    "english_name": "KEFAR MORDEKHAY",
+    "english_name": "KFAR MORDEKHAY",
     "semel_napa": "44",
     "shem_napa": "רחובות",
     "semel_lishkat_mana": "44",
@@ -6712,7 +6712,7 @@
   {
     "semel_yeshuv": "316",
     "name": "כפר נטר",
-    "english_name": "KEFAR NETTER",
+    "english_name": "KFAR NETTER",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6723,7 +6723,7 @@
   {
     "semel_yeshuv": "345",
     "name": "כפר סאלד",
-    "english_name": "KEFAR SZOLD",
+    "english_name": "KFAR SZOLD",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6734,7 +6734,7 @@
   {
     "semel_yeshuv": "6900",
     "name": "כפר סבא",
-    "english_name": "KEFAR SAVA",
+    "english_name": "KFAR SAVA",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "47",
@@ -6745,7 +6745,7 @@
   {
     "semel_yeshuv": "107",
     "name": "כפר סילבר",
-    "english_name": "KEFAR SILVER",
+    "english_name": "KFAR SILVER",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -6756,7 +6756,7 @@
   {
     "semel_yeshuv": "249",
     "name": "כפר סירקין",
-    "english_name": "KEFAR SIRKIN",
+    "english_name": "KFAR SIRKIN",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "42",
@@ -6767,7 +6767,7 @@
   {
     "semel_yeshuv": "875",
     "name": "כפר עבודה",
-    "english_name": "KEFAR AVODA",
+    "english_name": "KFAR AVODA",
     "semel_napa": "41",
     "shem_napa": "השרון",
     "semel_lishkat_mana": "41",
@@ -6778,7 +6778,7 @@
   {
     "semel_yeshuv": "845",
     "name": "כפר עזה",
-    "english_name": "KEFAR AZZA",
+    "english_name": "KFAR AZZA",
     "semel_napa": "61",
     "shem_napa": "אשקלון",
     "semel_lishkat_mana": "61",
@@ -6789,7 +6789,7 @@
   {
     "semel_yeshuv": "3488",
     "name": "כפר עציון",
-    "english_name": "KEFAR EZYON",
+    "english_name": "KFAR EZYON",
     "semel_napa": "76",
     "shem_napa": "בית לחם",
     "semel_lishkat_mana": "11",
@@ -6800,7 +6800,7 @@
   {
     "semel_yeshuv": "189",
     "name": "כפר פינס",
-    "english_name": "KEFAR PINES",
+    "english_name": "KFAR PINES",
     "semel_napa": "32",
     "shem_napa": "חדרה",
     "semel_lishkat_mana": "32",
@@ -6822,7 +6822,7 @@
   {
     "semel_yeshuv": "388",
     "name": "כפר קיש",
-    "english_name": "KEFAR KISH",
+    "english_name": "KFAR KISH",
     "semel_napa": "22",
     "shem_napa": "כנרת",
     "semel_lishkat_mana": "22",
@@ -6844,7 +6844,7 @@
   {
     "semel_yeshuv": "579",
     "name": "כפר ראש הנקרה",
-    "english_name": "KEFAR ROSH HANIQRA",
+    "english_name": "KFAR ROSH HANIQRA",
     "semel_napa": "24",
     "shem_napa": "עכו",
     "semel_lishkat_mana": "24",
@@ -6855,7 +6855,7 @@
   {
     "semel_yeshuv": "1130",
     "name": "כפר רוזנואלד )זרעית(",
-    "english_name": "KEFAR ROZENWALD(ZAR.",
+    "english_name": "KFAR ROZENWALD(ZAR.",
     "semel_napa": "24",
     "shem_napa": "עכו",
     "semel_lishkat_mana": "24",
@@ -6866,7 +6866,7 @@
   {
     "semel_yeshuv": "295",
     "name": "כפר רופין",
-    "english_name": "KEFAR RUPPIN",
+    "english_name": "KFAR RUPPIN",
     "semel_napa": "23",
     "shem_napa": "עפולה",
     "semel_lishkat_mana": "23",
@@ -6877,7 +6877,7 @@
   {
     "semel_yeshuv": "1166",
     "name": "כפר רות",
-    "english_name": "KEFAR RUT",
+    "english_name": "KFAR RUT",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -6888,7 +6888,7 @@
   {
     "semel_yeshuv": "605",
     "name": "כפר שמאי",
-    "english_name": "KEFAR SHAMMAY",
+    "english_name": "KFAR SHAMMAY",
     "semel_napa": "21",
     "shem_napa": "צפת",
     "semel_lishkat_mana": "21",
@@ -6899,7 +6899,7 @@
   {
     "semel_yeshuv": "743",
     "name": "כפר שמואל",
-    "english_name": "KEFAR SHEMU'EL",
+    "english_name": "KFAR SHEMU'EL",
     "semel_napa": "43",
     "shem_napa": "רמלה",
     "semel_lishkat_mana": "43",
@@ -6910,7 +6910,7 @@
   {
     "semel_yeshuv": "267",
     "name": "כפר שמריהו",
-    "english_name": "KEFAR SHEMARYAHU",
+    "english_name": "KFAR SHEMARYAHU",
     "semel_napa": "51",
     "shem_napa": "תל אביב",
     "semel_lishkat_mana": "57",
@@ -6921,7 +6921,7 @@
   {
     "semel_yeshuv": "47",
     "name": "כפר תבור",
-    "english_name": "KEFAR TAVOR",
+    "english_name": "KFAR TAVOR",
     "semel_napa": "22",
     "shem_napa": "כנרת",
     "semel_lishkat_mana": "22",
@@ -6932,7 +6932,7 @@
   {
     "semel_yeshuv": "3572",
     "name": "כפר תפוח",
-    "english_name": "KEFAR TAPPUAH",
+    "english_name": "KFAR TAPPUAH",
     "semel_napa": "73",
     "shem_napa": "טול כרם",
     "semel_lishkat_mana": "48",
@@ -8450,7 +8450,7 @@
   {
     "semel_yeshuv": "230",
     "name": "מעש",
-    "english_name": "MA'AS",
+    "english_name": "KFAR MA'AS",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "42",
@@ -11178,7 +11178,7 @@
   {
     "semel_yeshuv": "1104",
     "name": "פוריה - כפר עבודה",
-    "english_name": "PORIYYA-KEFAR AVODA",
+    "english_name": "PORIYYA-KFAR AVODA",
     "semel_napa": "22",
     "shem_napa": "כנרת",
     "semel_lishkat_mana": "22",
@@ -11398,7 +11398,7 @@
   {
     "semel_yeshuv": "7900",
     "name": "פתח תקווה",
-    "english_name": "PETAH TIQWA",
+    "english_name": "PETAH TIKVA",
     "semel_napa": "42",
     "shem_napa": "פתח תקווה",
     "semel_lishkat_mana": "42",
@@ -12201,7 +12201,7 @@
   {
     "semel_yeshuv": "8300",
     "name": "ראשון לציון",
-    "english_name": "RISHON LEZIYYON",
+    "english_name": "RISHON LETSIYON",
     "semel_napa": "44",
     "shem_napa": "רחובות",
     "semel_lishkat_mana": "46",
@@ -13488,7 +13488,7 @@
   {
     "semel_yeshuv": "3720",
     "name": "שערי תקווה",
-    "english_name": "SHA'ARE TIQWA",
+    "english_name": "SHA'ARE TIKVA",
     "semel_napa": "73",
     "shem_napa": "טול כרם",
     "semel_lishkat_mana": "349",

@@ -44,7 +44,6 @@ public class SignUpActivity extends AppCompatActivity {
     private FBManager fbManager;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri mImageUri;
-    private TextView play;
     private StorageReference fileReference;
 
 
@@ -109,7 +108,7 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         });
 
-        play = manager.getSign_up_LBL_play();
+        TextView play = manager.getSign_up_LBL_play();
         play.setOnClickListener(v -> {
 
             switch (manager.checkFields()) {
@@ -139,19 +138,14 @@ public class SignUpActivity extends AppCompatActivity {
                                 uploadImage();
                                 manager.moveToChooseLocation(this);
                             })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            });
+                            .addOnFailureListener(e -> Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show());
                     break;
 
             }
         });
 
 
-        profilePic.setOnClickListener(v -> {
-            openFileChooser();
-
-        });
+        profilePic.setOnClickListener(v -> openFileChooser());
     }
 
 
@@ -207,8 +201,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             mImageUri = data.getData();
-            Glide.with(this).load(mImageUri).apply(RequestOptions.circleCropTransform()).into(profilePic);
-
+            if (mImageUri != null) {
+                Glide.with(this).load(mImageUri).apply(RequestOptions.circleCropTransform()).into(profilePic);
+            }
         }
 
     }
@@ -223,12 +218,8 @@ public class SignUpActivity extends AppCompatActivity {
         user.put("phoneNumber", phone.getText().toString().trim());
 
         documentReference.set(user)
-                .addOnSuccessListener(aVoid -> {
-                    Log.d("ptt", "onSuccess: user profile is created for " + fbManager.getUserID());
-                })
-                .addOnFailureListener(e -> {
-                    Log.d("ptt", "onFailure: " + e.toString());
-                });
+                .addOnSuccessListener(aVoid -> Log.d("ptt", "onSuccess: user profile is created for " + fbManager.getUserID()))
+                .addOnFailureListener(e -> Log.d("ptt", "onFailure: " + e.toString()));
 
     }
 

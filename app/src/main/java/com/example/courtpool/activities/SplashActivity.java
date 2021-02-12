@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.courtpool.R;
+import com.example.courtpool.utils.AppManager;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        AppManager manager = new AppManager(this);
 
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, GetStartedActivity.class);

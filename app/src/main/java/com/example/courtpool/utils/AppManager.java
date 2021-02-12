@@ -1,12 +1,10 @@
 package com.example.courtpool.utils;
 
-import android.content.Context;
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,7 +16,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.courtpool.R;
 import com.example.courtpool.activities.ChooseLocationActivity;
 import com.example.courtpool.activities.CourtTypeActivity;
@@ -27,8 +24,6 @@ import com.example.courtpool.activities.MatchesActivity;
 import com.example.courtpool.activities.SignInActivity;
 import com.example.courtpool.activities.SignUpActivity;
 import com.example.courtpool.activities.SkillActivity;
-import com.example.courtpool.objects.Court;
-import com.example.courtpool.objects.User;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

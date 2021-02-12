@@ -1,8 +1,5 @@
 package com.example.courtpool.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,14 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.courtpool.utils.AppManager;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.courtpool.R;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.utils.SPManager;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInActivity extends AppCompatActivity {
@@ -81,9 +75,7 @@ public class SignInActivity extends AppCompatActivity {
                         manager.moveToMatches(this);
                     })
 
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
+                    .addOnFailureListener(e -> Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show());
         });
 
         signin_password.addTextChangedListener(new TextWatcher() {

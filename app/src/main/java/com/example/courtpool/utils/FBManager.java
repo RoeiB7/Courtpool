@@ -5,6 +5,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Objects;
+
 public class FBManager {
 
     private final FirebaseAuth firebaseAuth;
@@ -26,7 +28,7 @@ public class FBManager {
     }
 
     public String getUserID() {
-        return firebaseAuth.getCurrentUser().getUid();
+        return Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
     }
 
     public StorageReference getStorageReference() {
