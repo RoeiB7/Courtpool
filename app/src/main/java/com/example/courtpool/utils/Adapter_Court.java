@@ -17,6 +17,7 @@ import java.util.List;
 
 public class Adapter_Court extends RecyclerView.Adapter<Adapter_Court.MyViewHolder> {
 
+
     private List<Court> courts;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;

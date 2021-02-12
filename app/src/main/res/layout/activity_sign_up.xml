@@ -7,7 +7,6 @@
     android:layoutDirection="ltr"
     tools:context=".activities.SignUpActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,8 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/image_border"
-                android:src="@drawable/ic_add_profilepic" />
+                android:foreground="@drawable/rounded_fg"
+                android:src="@drawable/ic_user" />
 
 
         </LinearLayout>

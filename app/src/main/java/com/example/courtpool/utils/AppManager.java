@@ -1,10 +1,12 @@
 package com.example.courtpool.utils;
 
+import android.content.Context;
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -697,6 +699,7 @@ public class AppManager {
 
         return arrayList;
     }
+
 
     public TextView getGet_started_LBL_signIn() {
         return get_started_LBL_signIn;

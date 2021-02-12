@@ -1,33 +1,37 @@
 package com.example.courtpool.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.webkit.MimeTypeMap;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.courtpool.objects.User;
-import com.example.courtpool.utils.AppManager;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.courtpool.R;
+import com.example.courtpool.objects.Upload;
+import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.utils.Courts_Creator;
 import com.example.courtpool.utils.FBManager;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -38,6 +42,10 @@ public class SignUpActivity extends AppCompatActivity {
     private boolean crossEye = false;
     private final int DRAWABLE_RIGHT = 2;
     private FBManager fbManager;
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private Uri mImageUri;
+    private TextView play;
+    private StorageReference fileReference;
 
 
     @Override
@@ -50,24 +58,17 @@ public class SignUpActivity extends AppCompatActivity {
         fbManager = new FBManager();
         initViews();
 
-
     }
 
 
     @SuppressLint("ClickableViewAccessibility")
-    public void initViews() {
+    private void initViews() {
 
         profilePic = manager.getSign_up_IMG_addProfilePic();
         password = manager.getSign_up_EDT_password();
         name = manager.getSign_up_EDT_name();
         email = manager.getSign_up_EDT_email();
         phone = manager.getSign_up_EDT_phone();
-
-        profilePic.setOnClickListener(v -> {
-
-            //TODO: ADD FUNCTIONALITY FOR UPLOADING PICTURE
-
-        });
 
 
         password.addTextChangedListener(new TextWatcher() {
@@ -108,7 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         });
 
-        TextView play = manager.getSign_up_LBL_play();
+        play = manager.getSign_up_LBL_play();
         play.setOnClickListener(v -> {
 
             switch (manager.checkFields()) {
@@ -135,6 +136,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 addUserToDB();
                                 Courts_Creator courts_creator = new Courts_Creator();
                                 courts_creator.createCourts();
+                                uploadImage();
                                 manager.moveToChooseLocation(this);
                             })
                             .addOnFailureListener(e -> {
@@ -144,9 +146,75 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
+
+
+        profilePic.setOnClickListener(v -> {
+            openFileChooser();
+
+        });
     }
 
-    public void addUserToDB() {
+
+    private String getFileExtension(Uri uri) {
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+
+    private void uploadImage() {
+
+        if (mImageUri != null) {
+            fileReference = fbManager.getStorageReference().child(System.currentTimeMillis()
+                    + "." + getFileExtension(mImageUri));
+
+            fileReference.putFile(mImageUri).continueWithTask(task -> {
+                if (!task.isSuccessful()) {
+                    throw Objects.requireNonNull(task.getException());
+                }
+                return fileReference.getDownloadUrl();
+            }).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+
+                    Upload upload = new Upload(name.getText().toString().trim() + "'s profile picture",
+                            downloadUri.toString());
+
+                    DocumentReference documentReference = fbManager.getFirebaseFirestore()
+                            .collection("users").document(fbManager.getUserID());
+
+                    documentReference.update("profilePic", upload);
+
+                } else {
+                    Toast.makeText(SignUpActivity.this, "upload failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+    }
+
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+            Glide.with(this).load(mImageUri).apply(RequestOptions.circleCropTransform()).into(profilePic);
+
+        }
+
+    }
+
+
+    private void addUserToDB() {
         DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
         Map<String, Object> user = new HashMap<>();
         user.put("fullName", name.getText().toString().trim());
@@ -163,4 +231,6 @@ public class SignUpActivity extends AppCompatActivity {
                 });
 
     }
+
+
 }

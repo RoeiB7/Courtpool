@@ -2,15 +2,19 @@ package com.example.courtpool.utils;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class FBManager {
 
-    private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firebaseFirestore;
+    private final FirebaseAuth firebaseAuth;
+    private final FirebaseFirestore firebaseFirestore;
+    private final StorageReference storageReference;
 
     public FBManager() {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference("uploads");
     }
 
     public FirebaseAuth getFirebaseAuth() {
@@ -23,5 +27,9 @@ public class FBManager {
 
     public String getUserID() {
         return firebaseAuth.getCurrentUser().getUid();
+    }
+
+    public StorageReference getStorageReference() {
+        return storageReference;
     }
 }

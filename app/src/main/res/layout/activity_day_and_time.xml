@@ -47,7 +47,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.82"
             android:orientation="vertical">
 
 
@@ -662,7 +662,7 @@
                 android:id="@+id/day_and_time_LBL_find"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="88dp"
+                android:layout_marginTop="64dp"
                 android:background="#0844a4"
                 android:gravity="center"
                 android:text="Find matches"

@@ -2,18 +2,14 @@ package com.example.courtpool.utils;
 
 import android.util.Log;
 
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Courts_Creator {
 
-    private FBManager fbManager;
-
-
     public void createCourts() {
-        fbManager = new FBManager();
+        FBManager fbManager = new FBManager();
 
         Map<String, Object> city = new HashMap<>();
         city.put("TEL AVIV - YAFO",

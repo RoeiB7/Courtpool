@@ -37,7 +37,7 @@ public class CourtTypeActivity extends AppCompatActivity {
 
     }
 
-    public void initViews() {
+    private void initViews() {
 
         ImageView cement = manager.getCourt_type_IMG_cement();
         cement.setOnClickListener(v -> manager.checkMarkOn(AppManager.CEMENT));
