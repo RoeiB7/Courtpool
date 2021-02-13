@@ -2,6 +2,8 @@ package com.example.courtpool.utils;
 
 import android.app.Application;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 public class App extends Application {
 
 
@@ -10,6 +12,7 @@ public class App extends Application {
         super.onCreate();
 
         SPManager.init(this);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
     }

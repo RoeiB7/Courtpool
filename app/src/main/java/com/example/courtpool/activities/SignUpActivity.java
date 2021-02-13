@@ -11,6 +11,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private AppManager manager;
     private EditText name, email, phone, password;
+    private Button uploadImage;
     private ImageView profilePic;
     private boolean eye = false;
     private boolean crossEye = false;
@@ -63,6 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     private void initViews() {
 
+        uploadImage = manager.getSign_up_BTN_uploadImage();
         profilePic = manager.getSign_up_IMG_addProfilePic();
         password = manager.getSign_up_EDT_password();
         name = manager.getSign_up_EDT_name();
@@ -145,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
 
-        profilePic.setOnClickListener(v -> openFileChooser());
+        uploadImage.setOnClickListener(v -> openFileChooser());
     }
 
 

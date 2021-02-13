@@ -112,7 +112,7 @@ public class DayAndTimeActivity extends AppCompatActivity {
                 documentReference.update("playTime", manager.getUpdatedMap())
                         .addOnSuccessListener(aVoid -> {
                             Log.d("ptt", "user updated - time and day");
-                            manager.moveToMatches(this);
+                            manager.moveToNav(this);
                         })
 
                         .addOnFailureListener(e -> {

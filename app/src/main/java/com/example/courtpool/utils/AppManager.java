@@ -20,10 +20,11 @@ import com.example.courtpool.R;
 import com.example.courtpool.activities.ChooseLocationActivity;
 import com.example.courtpool.activities.CourtTypeActivity;
 import com.example.courtpool.activities.DayAndTimeActivity;
-import com.example.courtpool.activities.MatchesActivity;
+import com.example.courtpool.activities.NavActivity;
 import com.example.courtpool.activities.SignInActivity;
 import com.example.courtpool.activities.SignUpActivity;
 import com.example.courtpool.activities.SkillActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,8 +40,8 @@ public class AppManager {
 
     private Button get_started_BTN_getStarted;
     private Button sign_in_BTN_signIn;
-    private Button matches_BTN_profile;
-    private Button matches_BTN_matches;
+    private Button sign_up_BTN_uploadImage;
+
 
     private TextView get_started_LBL_signIn;
     private TextView sign_in_LBL_signUp;
@@ -58,8 +59,6 @@ public class AppManager {
     private EditText sign_up_EDT_password;
     private EditText sign_up_EDT_phone;
 
-
-    private ImageView get_started_IMG_tennis;
     private ImageView sign_up_IMG_addProfilePic;
     private ImageView court_type_IMG_cement;
     private ImageView court_type_IMG_grass;
@@ -121,6 +120,7 @@ public class AppManager {
     private CheckBox sign_in_CBX_rememberMe;
 
     private RecyclerView choose_location_LST_courtsLocations;
+    private BottomNavigationView nav_BNV_bottomNavigation;
 
     private boolean visibility = false;
     private int daysSelected = 0;
@@ -147,7 +147,6 @@ public class AppManager {
     public void findGetStartedViews(AppCompatActivity activity) {
         get_started_BTN_getStarted = activity.findViewById(R.id.get_started_BTN_getStarted);
         get_started_LBL_signIn = activity.findViewById(R.id.get_started_LBL_signIn);
-        get_started_IMG_tennis = activity.findViewById(R.id.get_started_IMG_tennis);
     }
 
 
@@ -161,6 +160,7 @@ public class AppManager {
 
     public void findSignUpViews(AppCompatActivity activity) {
         sign_up_IMG_addProfilePic = activity.findViewById(R.id.sign_up_IMG_addProfilePic);
+        sign_up_BTN_uploadImage = activity.findViewById(R.id.sign_up_BTN_uploadImage);
         sign_up_EDT_name = activity.findViewById(R.id.sign_up_EDT_name);
         sign_up_EDT_email = activity.findViewById(R.id.sign_up_EDT_email);
         sign_up_EDT_password = activity.findViewById(R.id.sign_up_EDT_password);
@@ -246,9 +246,8 @@ public class AppManager {
 
     }
 
-    public void findMatchesViews(AppCompatActivity activity) {
-        matches_BTN_matches = activity.findViewById(R.id.matches_BTN_matches);
-        matches_BTN_profile = activity.findViewById(R.id.matches_BTN_profile);
+    public void findNavViews(AppCompatActivity activity) {
+        nav_BNV_bottomNavigation = activity.findViewById(R.id.nav_BNV_bottomNavigation);
     }
 
 
@@ -287,8 +286,8 @@ public class AppManager {
         activity.finish();
     }
 
-    public void moveToMatches(AppCompatActivity activity) {
-        Intent intent = new Intent(activity, MatchesActivity.class);
+    public void moveToNav(AppCompatActivity activity) {
+        Intent intent = new Intent(activity, NavActivity.class);
         activity.startActivity(intent);
         activity.finish();
     }
@@ -724,6 +723,14 @@ public class AppManager {
         return sign_in_CBX_rememberMe;
     }
 
+    public ImageView getSign_up_IMG_addProfilePic() {
+        return sign_up_IMG_addProfilePic;
+    }
+
+    public Button getSign_up_BTN_uploadImage() {
+        return sign_up_BTN_uploadImage;
+    }
+
     public EditText getSign_up_EDT_name() {
         return sign_up_EDT_name;
     }
@@ -742,10 +749,6 @@ public class AppManager {
 
     public EditText getSign_up_EDT_password() {
         return sign_up_EDT_password;
-    }
-
-    public ImageView getSign_up_IMG_addProfilePic() {
-        return sign_up_IMG_addProfilePic;
     }
 
     public TextView getChoose_location_LBL_court() {

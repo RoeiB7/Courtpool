@@ -71,8 +71,7 @@ public class SignInActivity extends AppCompatActivity {
             fAuth.signInWithEmailAndPassword(signin_email.getText().toString().trim(), signin_password.getText().toString().trim())
 
                     .addOnSuccessListener(authResult -> {
-                        Toast.makeText(this, "Logged in", Toast.LENGTH_SHORT).show();
-                        manager.moveToMatches(this);
+                        manager.moveToNav(this);
                     })
 
                     .addOnFailureListener(e -> Toast.makeText(this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show());

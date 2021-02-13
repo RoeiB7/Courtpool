@@ -4,20 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.R;
+import com.example.courtpool.utils.AppManager;
 
-public class MatchesActivity extends AppCompatActivity {
+public class NavActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matches);
+        setContentView(R.layout.activity_nav);
 
         AppManager manager = new AppManager(this);
-        manager.findMatchesViews(this);
-
-        //TODO: CREATE NEW BOTTOM NAVIGATION ACTIVITY FOR SWITCHING BETWEEN PROFILE/MATCHES/CHAT(MAYBE)
+        manager.findNavViews(this);
 
     }
 }

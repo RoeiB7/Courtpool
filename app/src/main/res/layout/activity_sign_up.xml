@@ -25,9 +25,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
                 android:foreground="@drawable/rounded_fg"
                 android:src="@drawable/ic_user" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sign_up_BTN_uploadImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/great_blue"
+                android:drawableStart="@drawable/ic_cloud"
+                android:drawablePadding="10dp"
+                android:padding="5dp"
+                android:text="@string/upload_image"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>
@@ -44,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="36dp"
                 android:hint="@string/name"
                 app:boxStrokeColor="@color/great_blue"
@@ -141,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="38dp"
-                android:background="#0844a4"
+                android:background="@color/great_blue"
                 android:gravity="center"
                 android:text="Where do you want to play? "
                 android:textColor="@color/white"

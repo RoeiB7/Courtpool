@@ -1,16 +1,13 @@
 package com.example.courtpool.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.courtpool.utils.AppManager;
-import com.example.courtpool.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+import com.example.courtpool.R;
+import com.example.courtpool.utils.AppManager;
 
 public class GetStartedActivity extends AppCompatActivity {
 
