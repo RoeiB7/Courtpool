@@ -76,6 +76,7 @@ public class ChooseLocationActivity extends AppCompatActivity {
                 } else {
                     courts.clear();
                     autoCompleteTextView.setOnItemClickListener((parent, view, position, id) -> {
+                        manager.closeKeyboard(ChooseLocationActivity.this);
                         selectedCity = autoCompleteTextView.getAdapter().getItem(position).toString();
 
                         DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("cities").document("city");

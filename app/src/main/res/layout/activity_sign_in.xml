@@ -133,7 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/sign_up"
-                    android:textColor="@color/black"
+                    android:textColor="@color/great_blue"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 

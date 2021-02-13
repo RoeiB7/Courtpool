@@ -1,10 +1,12 @@
 package com.example.courtpool.utils;
 
+import android.content.Context;
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -694,6 +696,14 @@ public class AppManager {
         return arrayList;
     }
 
+    public void closeKeyboard(AppCompatActivity activity) {
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
 
     public TextView getGet_started_LBL_signIn() {
         return get_started_LBL_signIn;
@@ -887,6 +897,9 @@ public class AppManager {
         return day_and_time_LAY_saturday_evening;
     }
 
+    public BottomNavigationView getNav_BNV_bottomNavigation() {
+        return nav_BNV_bottomNavigation;
+    }
 
     public Map<String, ArrayList<String>> getUpdatedMap() {
         return playTime;
