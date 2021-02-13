@@ -33,13 +33,15 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/sign_up_BTN_uploadImage"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="@color/great_blue"
                 android:drawableStart="@drawable/ic_cloud"
                 android:drawablePadding="10dp"
-                android:padding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:text="@string/upload_image"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
@@ -50,7 +52,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.3"
             android:orientation="vertical">
 
 
@@ -155,7 +157,7 @@
                 android:id="@+id/sign_up_LBL_play"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="38dp"
+                android:layout_marginTop="72dp"
                 android:background="@color/great_blue"
                 android:gravity="center"
                 android:text="Where do you want to play? "
