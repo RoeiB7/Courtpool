@@ -21,9 +21,7 @@ public class SkillActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_Courtpool);
         setContentView(R.layout.activity_skill);
-
 
         manager = new AppManager(this);
         manager.findSkillViews(this);
@@ -44,9 +42,9 @@ public class SkillActivity extends AppCompatActivity {
         moveToTime.setOnClickListener(v -> {
             if (manager.checkImageAlpha().length() != 0) {
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
-                documentReference.update("skill", manager.checkImageAlpha())
+                documentReference.update(FBManager.KEY_SKILL, manager.checkImageAlpha())
                         .addOnSuccessListener(aVoid -> {
-                            Log.d("ptt", "user updated - skill");
+                            Log.d(AppManager.TAG, "user updated - skill");
                             manager.moveToDayAndTime(this);
                         })
 

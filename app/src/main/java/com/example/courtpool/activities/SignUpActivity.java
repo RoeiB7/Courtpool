@@ -23,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.courtpool.R;
-import com.example.courtpool.objects.Upload;
 import com.example.courtpool.utils.AppManager;
 import com.example.courtpool.utils.Courts_Creator;
 import com.example.courtpool.utils.FBManager;
@@ -38,7 +37,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private AppManager manager;
     private EditText name, email, phone, password;
-    private Button uploadImage;
     private ImageView profilePic;
     private boolean eye = false;
     private boolean crossEye = false;
@@ -65,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     private void initViews() {
 
-        uploadImage = manager.getSign_up_BTN_uploadImage();
+        Button uploadImage = manager.getSign_up_BTN_uploadImage();
         profilePic = manager.getSign_up_IMG_addProfilePic();
         password = manager.getSign_up_EDT_password();
         name = manager.getSign_up_EDT_name();
@@ -134,7 +132,7 @@ public class SignUpActivity extends AppCompatActivity {
                 case 5:
                     fbManager.getFirebaseAuth().createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
                             .addOnSuccessListener(authResult -> {
-                                Log.d("ptt", "user created");
+                                Log.d(AppManager.TAG, "user created");
                                 addUserToDB();
                                 Courts_Creator courts_creator = new Courts_Creator();
                                 courts_creator.createCourts();
@@ -173,18 +171,20 @@ public class SignUpActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
 
-                    Upload upload = new Upload(name.getText().toString().trim() + "'s profile picture",
-                            downloadUri.toString());
-
                     DocumentReference documentReference = fbManager.getFirebaseFirestore()
                             .collection("users").document(fbManager.getUserID());
 
-                    documentReference.update("profilePic", upload);
+                    documentReference.update(FBManager.KEY_IMAGE, downloadUri.toString());
 
                 } else {
                     Toast.makeText(SignUpActivity.this, "upload failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+        } else {
+            DocumentReference documentReference = fbManager.getFirebaseFirestore()
+                    .collection("users").document(fbManager.getUserID());
+
+            documentReference.update(FBManager.KEY_IMAGE, "N/A");
         }
 
     }
@@ -215,14 +215,14 @@ public class SignUpActivity extends AppCompatActivity {
     private void addUserToDB() {
         DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
         Map<String, Object> user = new HashMap<>();
-        user.put("fullName", name.getText().toString().trim());
-        user.put("email", email.getText().toString().trim());
-        user.put("password", password.getText().toString().trim());
-        user.put("phoneNumber", phone.getText().toString().trim());
+        user.put(FBManager.KEY_NAME, name.getText().toString().trim());
+        user.put(FBManager.KEY_EMAIL, email.getText().toString().trim());
+        user.put(FBManager.KEY_PASSWORD, password.getText().toString().trim());
+        user.put(FBManager.KEY_PHONE, phone.getText().toString().trim());
 
         documentReference.set(user)
-                .addOnSuccessListener(aVoid -> Log.d("ptt", "onSuccess: user profile is created for " + fbManager.getUserID()))
-                .addOnFailureListener(e -> Log.d("ptt", "onFailure: " + e.toString()));
+                .addOnSuccessListener(aVoid -> Log.d(AppManager.TAG, "onSuccess: user profile is created for " + fbManager.getUserID()))
+                .addOnFailureListener(e -> Log.d(AppManager.TAG, "onFailure: " + e.toString()));
 
     }
 

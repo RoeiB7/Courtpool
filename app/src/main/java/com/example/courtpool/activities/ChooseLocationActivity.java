@@ -67,7 +67,7 @@ public class ChooseLocationActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.toString().isEmpty()) {
-                    Log.d("ptt", "auto complete is empty");
+                    Log.d(AppManager.TAG, "auto complete is empty");
                     courts.clear();
                     adapter_court = new Adapter_Court(ChooseLocationActivity.this, courts);
                     choose_location_LST_courtsLocations.setLayoutManager(new LinearLayoutManager(ChooseLocationActivity.this));
@@ -82,7 +82,7 @@ public class ChooseLocationActivity extends AppCompatActivity {
                         DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("cities").document("city");
                         documentReference.addSnapshotListener(ChooseLocationActivity.this, (documentSnapshot, error) -> {
                             if (error != null) {
-                                Log.d("ptt", "Listen failed.", error);
+                                Log.d(AppManager.TAG, "Listen failed.", error);
                                 return;
                             }
                             if (documentSnapshot != null && documentSnapshot.exists()) {
@@ -95,7 +95,7 @@ public class ChooseLocationActivity extends AppCompatActivity {
                                     }
                                 }
                             } else {
-                                Log.d("ptt", "Current data: null");
+                                Log.d(AppManager.TAG, "Current data: null");
                             }
                         });
                         adapter_court = new Adapter_Court(ChooseLocationActivity.this, courts);
@@ -128,9 +128,9 @@ public class ChooseLocationActivity extends AppCompatActivity {
             }
             if (!checkedCourts.isEmpty()) {
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
-                documentReference.update("courtLocation", checkedCourts)
+                documentReference.update(FBManager.KEY_LOCATION, checkedCourts)
                         .addOnSuccessListener(aVoid -> {
-                            Log.d("ptt", "user updated - location");
+                            Log.d(AppManager.TAG, "user updated - location");
                             manager.moveToCourtType(this);
                         })
 

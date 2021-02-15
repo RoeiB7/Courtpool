@@ -155,9 +155,9 @@ public class Courts_Creator {
         fbManager.getFirebaseFirestore().collection("cities").document("city")
                 .set(city)
 
-                .addOnSuccessListener(aVoid -> Log.d("ptt", "DocumentSnapshot successfully written!"))
+                .addOnSuccessListener(aVoid -> Log.d(AppManager.TAG, "DocumentSnapshot successfully written!"))
 
-                .addOnFailureListener(e -> Log.d("ptt", "Error writing document", e));
+                .addOnFailureListener(e -> Log.d(AppManager.TAG, "Error writing document", e));
 
 
     }

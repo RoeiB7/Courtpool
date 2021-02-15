@@ -13,6 +13,17 @@ public class FBManager {
     private final FirebaseFirestore firebaseFirestore;
     private final StorageReference storageReference;
 
+
+    public static final String KEY_NAME = "fullName";
+    public static final String KEY_EMAIL = "email";
+    public static final String KEY_PASSWORD = "password";
+    public static final String KEY_PHONE = "phoneNumber";
+    public static final String KEY_LOCATION = "courtLocation";
+    public static final String KEY_TYPE = "courtType";
+    public static final String KEY_TIME = "playTime";
+    public static final String KEY_SKILL = "skill";
+    public static final String KEY_IMAGE = "profilePic";
+
     public FBManager() {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();

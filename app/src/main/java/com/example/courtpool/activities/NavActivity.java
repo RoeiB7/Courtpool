@@ -16,43 +16,33 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavActivity extends AppCompatActivity {
 
-    private AppManager manager;
-    private BottomNavigationView bottomNav;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
 
-        manager = new AppManager(this);
+        AppManager manager = new AppManager(this);
         manager.findNavViews(this);
-        bottomNav = manager.getNav_BNV_bottomNavigation();
+        BottomNavigationView bottomNav = manager.getNav_BNV_bottomNavigation();
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_fragment_container, new ProfileFragment()).commit();
 
 
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListener =
             item -> {
                 Fragment selectedFragment = null;
-                switch (item.getItemId()) {
 
-                    case R.id.nav_profile:
-                        selectedFragment = new ProfileFragment();
-                        break;
-                    case R.id.nav_matches:
-                        selectedFragment = new MatchesFragment();
-                        break;
-                    case R.id.nav_contacts:
-                        selectedFragment = new ContactsFragment();
-                        break;
-
+                if (item.getItemId() == R.id.nav_profile) {
+                    selectedFragment = new ProfileFragment();
+                } else if (item.getItemId() == R.id.nav_matches) {
+                    selectedFragment = new MatchesFragment();
+                } else {
+                    selectedFragment = new ContactsFragment();
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_fragment_container,
                         selectedFragment).commit();
-
                 return true;
-
             };
 }

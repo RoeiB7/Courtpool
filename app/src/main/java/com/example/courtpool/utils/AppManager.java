@@ -1,11 +1,14 @@
 package com.example.courtpool.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -130,6 +133,7 @@ public class AppManager {
     public static final String GRASS = "grass";
     public static final String SYNTHETIC = "synthetic";
     public static final String CLAY = "clay";
+    public static final String TAG = "ptt";
 
     private Map<String, ArrayList<String>> playTime = new HashMap<>();
     private ArrayList<String> sunday = new ArrayList<>();
@@ -256,41 +260,49 @@ public class AppManager {
     public void moveToSignUp(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignUpActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
+
     }
 
     public void moveToSignIn(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignInActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
         activity.finish();
     }
 
     public void moveToChooseLocation(AppCompatActivity activity) {
         Intent intent = new Intent(activity, ChooseLocationActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
         activity.finish();
     }
 
     public void moveToCourtType(AppCompatActivity activity) {
         Intent intent = new Intent(activity, CourtTypeActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
         activity.finish();
     }
 
     public void moveToSkill(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SkillActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
         activity.finish();
     }
 
     public void moveToDayAndTime(AppCompatActivity activity) {
         Intent intent = new Intent(activity, DayAndTimeActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
         activity.finish();
     }
 
     public void moveToNav(AppCompatActivity activity) {
         Intent intent = new Intent(activity, NavActivity.class);
         activity.startActivity(intent);
+        activity.overridePendingTransition(0, 0);
         activity.finish();
     }
 
@@ -378,16 +390,16 @@ public class AppManager {
     public ArrayList<String> checkMarkVisibility() {
         ArrayList<String> lst = new ArrayList<>();
         if (isVisible(court_type_IMG_checkMarkHard)) {
-            lst.add("Cement");
+            lst.add(CEMENT);
         }
         if (isVisible(court_type_IMG_checkMarkGrass)) {
-            lst.add("Grass");
+            lst.add(GRASS);
         }
         if (isVisible(court_type_IMG_checkMarkSynthetic)) {
-            lst.add("Synthetic");
+            lst.add(SYNTHETIC);
         }
         if (isVisible(court_type_IMG_checkMarkClay)) {
-            lst.add("Clay");
+            lst.add(CLAY);
         }
 
         return lst;
@@ -690,7 +702,7 @@ public class AppManager {
                 arrayList.add(obj.getString(keyword));
             }
         } catch (Exception e) {
-            Log.e("error", e.toString());
+            Log.e(TAG, e.toString());
         }
 
         return arrayList;

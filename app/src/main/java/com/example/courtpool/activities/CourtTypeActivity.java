@@ -26,7 +26,6 @@ public class CourtTypeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_Courtpool);
         setContentView(R.layout.activity_court_type);
 
         manager = new AppManager(this);
@@ -56,9 +55,9 @@ public class CourtTypeActivity extends AppCompatActivity {
             ArrayList<String> courtType = manager.checkMarkVisibility();
             if (!courtType.isEmpty()) {
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
-                documentReference.update("courtType", courtType)
+                documentReference.update(FBManager.KEY_TYPE, courtType)
                         .addOnSuccessListener(aVoid -> {
-                            Log.d("ptt", "user updated - court type");
+                            Log.d(AppManager.TAG, "user updated - court type");
                             manager.moveToSkill(this);
                         })
 

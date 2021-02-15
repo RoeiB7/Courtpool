@@ -29,7 +29,6 @@ public class DayAndTimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_Courtpool);
         setContentView(R.layout.activity_day_and_time);
 
         manager = new AppManager(this);
@@ -109,9 +108,9 @@ public class DayAndTimeActivity extends AppCompatActivity {
                 manager.updateMap();
 
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
-                documentReference.update("playTime", manager.getUpdatedMap())
+                documentReference.update(FBManager.KEY_TIME, manager.getUpdatedMap())
                         .addOnSuccessListener(aVoid -> {
-                            Log.d("ptt", "user updated - time and day");
+                            Log.d(AppManager.TAG, "user updated - time and day");
                             manager.moveToNav(this);
                         })
 

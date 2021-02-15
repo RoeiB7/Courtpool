@@ -11,5 +11,7 @@
     <string name="matches">Matches</string>
     <string name="contacts">Contacts</string>
     <string name="upload_image">Upload Image</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="log_out">Log out</string>
 
 </resources>
