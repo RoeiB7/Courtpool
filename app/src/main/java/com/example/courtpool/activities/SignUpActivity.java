@@ -5,11 +5,14 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
@@ -109,6 +112,40 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         });
 
+        phone.addTextChangedListener(new TextWatcher() {
+            int keyDel;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                phone.setOnKeyListener((v, keyCode, event) -> {
+
+                    if (keyCode == KeyEvent.KEYCODE_DEL)
+                        keyDel = 1;
+                    return false;
+                });
+
+                if (keyDel == 0) {
+                    int len = phone.getText().length();
+                    if (len == 3) {
+                        phone.setText(phone.getText().toString() + " - ");
+                        phone.setSelection(phone.getText().length());
+                    }
+                } else {
+                    keyDel = 0;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         TextView play = manager.getSign_up_LBL_play();
         play.setOnClickListener(v -> {
 
@@ -119,15 +156,19 @@ public class SignUpActivity extends AppCompatActivity {
                     break;
                 case 1:
                     name.setError("Your name must contain at least 2 letter");
+                    manager.closeKeyboard(this);
                     break;
                 case 2:
                     email.setError("Please fix your email format, i.e example@example.com");
+                    manager.closeKeyboard(this);
                     break;
                 case 3:
                     password.setError("Your password must contain at least 8 characters");
+                    manager.closeKeyboard(this);
                     break;
                 case 4:
                     phone.setError("Your phone number must contain 10 digits");
+                    manager.closeKeyboard(this);
                     break;
                 case 5:
                     fbManager.getFirebaseAuth().createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())

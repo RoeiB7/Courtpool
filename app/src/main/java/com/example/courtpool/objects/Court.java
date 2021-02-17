@@ -1,5 +1,6 @@
 package com.example.courtpool.objects;
 
+
 public class Court {
 
     String name;
@@ -37,5 +38,9 @@ public class Court {
 
     public void setChecked(Boolean checked) {
         this.checked = checked;
+    }
+
+    public String toString() {
+        return name + '\'' + address;
     }
 }

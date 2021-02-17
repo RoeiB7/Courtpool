@@ -32,7 +32,7 @@ public class ChooseLocationActivity extends AppCompatActivity {
     private AutoCompleteTextView autoCompleteTextView;
     private RecyclerView choose_location_LST_courtsLocations;
     private ArrayList<Court> courts;
-    private ArrayList<Court> checkedCourts = new ArrayList<>();
+    private ArrayList<String> checkedCourts = new ArrayList<>();
     private ArrayList<String> fsCourts = new ArrayList<>();
     private Adapter_Court adapter_court;
     private FBManager fbManager;
@@ -104,6 +104,14 @@ public class ChooseLocationActivity extends AppCompatActivity {
                             public void onItemClick(View view, int position) {
                                 courts.get(position).setChecked(!courts.get(position).getChecked());
                                 adapter_court.updateOneItem(position);
+                                if (courts.get(position).getChecked()) {
+                                    checkedCourts.add(courts.get(position).getName());
+                                    checkedCourts.add(courts.get(position).getAddress());
+
+                                } else {
+                                    checkedCourts.remove(courts.get(position).getName());
+                                    checkedCourts.remove(courts.get(position).getAddress());
+                                }
                             }
                         });
                         choose_location_LST_courtsLocations.setLayoutManager(new LinearLayoutManager(ChooseLocationActivity.this));
@@ -118,14 +126,8 @@ public class ChooseLocationActivity extends AppCompatActivity {
             }
         });
 
-
         TextView courtType = manager.getChoose_location_LBL_court();
         courtType.setOnClickListener(v -> {
-            for (int i = 0; i < courts.size(); i++) {
-                if (courts.get(i).getChecked()) {
-                    checkedCourts.add(courts.get(i));
-                }
-            }
             if (!checkedCourts.isEmpty()) {
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
                 documentReference.update(FBManager.KEY_LOCATION, checkedCourts)

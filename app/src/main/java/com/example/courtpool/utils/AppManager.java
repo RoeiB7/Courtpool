@@ -129,10 +129,10 @@ public class AppManager {
 
     private boolean visibility = false;
     private int daysSelected = 0;
-    public static final String CEMENT = "cement";
-    public static final String GRASS = "grass";
-    public static final String SYNTHETIC = "synthetic";
-    public static final String CLAY = "clay";
+    public static final String CEMENT = "Cement";
+    public static final String GRASS = "Grass";
+    public static final String SYNTHETIC = "Synthetic";
+    public static final String CLAY = "Clay";
     public static final String TAG = "ptt";
 
     private Map<String, ArrayList<String>> playTime = new HashMap<>();
@@ -345,7 +345,7 @@ public class AppManager {
             return 2;
         } else if (sign_up_EDT_password.getText().toString().trim().length() < 8) {
             return 3;
-        } else if (sign_up_EDT_phone.getText().toString().trim().length() != 10)
+        } else if (sign_up_EDT_phone.getText().toString().trim().length() != 13)
             return 4;
         else {
             return 5;

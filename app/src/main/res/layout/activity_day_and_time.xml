@@ -76,16 +76,17 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="40dp"
+                            android:layout_marginTop="32dp"
                             android:src="@drawable/sunrise" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:layout_marginTop="8dp"
                             android:gravity="center|bottom"
-                            android:text="Morning"
+                            android:text="Morning\n 07:00 - 12:00"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="13.5sp"
                             android:textStyle="bold" />
 
 
@@ -317,16 +318,17 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="40dp"
+                            android:layout_marginTop="32dp"
                             android:src="@drawable/sun" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:layout_marginTop="8dp"
                             android:gravity="center|bottom"
-                            android:text="Mid-day"
+                            android:text="Mid day\n 12:00 - 17:00"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="13.5sp"
                             android:textStyle="bold" />
 
 
@@ -491,16 +493,17 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="40dp"
+                            android:layout_marginTop="32dp"
                             android:src="@drawable/sunset" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
+                            android:layout_marginTop="8dp"
                             android:gravity="center|bottom"
-                            android:text="Evening"
+                            android:text="Evening\n 17:00 - 22:00"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="13.5sp"
                             android:textStyle="bold" />
 
 
