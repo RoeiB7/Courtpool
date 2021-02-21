@@ -49,6 +49,7 @@ public class ProfileFragment extends Fragment {
 
     private ArrayList<String> hours;
     private ArrayList<String> days_strings;
+    private ArrayList<String> courts_strings;
     private Map<String, ArrayList<String>> playTimeMap;
 
     private View view;
@@ -142,11 +143,13 @@ public class ProfileFragment extends Fragment {
                 ArrayAdapter<String> type_adapter = new ArrayAdapter<>(view.getContext(), R.layout.spinner_item, types);
                 fragment_profile_LST_courtType.setAdapter(type_adapter);
 
-                ArrayList<String> courts_strings = (ArrayList<String>) documentSnapshot.getData().get(FBManager.KEY_LOCATION);
+                courts_strings = (ArrayList<String>) documentSnapshot.getData().get(FBManager.KEY_LOCATION);
 
                 ArrayList<Court> courts = new ArrayList<>();
                 for (int i = 0; i < courts_strings.size(); i = i + 2) {
-                    courts.add(new Court(courts_strings.get(i), courts_strings.get(i + 1)));
+                    String court_name = courts_strings.get(i);
+                    String court_address = courts_strings.get(i + 1);
+                    courts.add(new Court(court_name, court_address));
                 }
 
                 Adapter_Profile_Court adapter_profile_court = new Adapter_Profile_Court(view.getContext(), courts);
@@ -176,10 +179,7 @@ public class ProfileFragment extends Fragment {
                             }
 
                         }
-
-
                         fragment_profile_LBL_changeHours.setText(sb);
-
                     }
 
                     @Override

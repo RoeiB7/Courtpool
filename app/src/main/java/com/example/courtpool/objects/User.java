@@ -14,13 +14,15 @@ public class User {
     private ArrayList<String> courtTypes = new ArrayList<>();
     private String skill;
     private Map<String, ArrayList<String>> playTime = new HashMap<>();
+    private String profileImage;
 
 
     public User() {
 
     }
 
-    public User(String name, String email, String password, String phone, ArrayList<String> courtLocation, ArrayList<String> courtTypes, String skill, Map<String, ArrayList<String>> playTime) {
+    public User(String name, String email, String password, String phone, ArrayList<String> courtLocation,
+                ArrayList<String> courtTypes, String skill, Map<String, ArrayList<String>> playTime, String profileImage) {
 
         this.name = name;
         this.email = email;
@@ -30,6 +32,7 @@ public class User {
         this.courtTypes = courtTypes;
         this.skill = skill;
         this.playTime = playTime;
+        this.profileImage = profileImage;
     }
 
 
@@ -95,5 +98,13 @@ public class User {
 
     public void setPlayTime(Map<String, ArrayList<String>> playTime) {
         this.playTime = playTime;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }
