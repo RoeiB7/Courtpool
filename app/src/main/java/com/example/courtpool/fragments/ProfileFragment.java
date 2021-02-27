@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +25,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.courtpool.R;
+import com.example.courtpool.activities.ChooseLocationActivity;
+import com.example.courtpool.activities.CourtTypeActivity;
+import com.example.courtpool.activities.DayAndTimeActivity;
+import com.example.courtpool.activities.PersonalEditActivity;
 import com.example.courtpool.activities.SignInActivity;
+import com.example.courtpool.activities.SkillActivity;
 import com.example.courtpool.objects.Court;
 import com.example.courtpool.utils.Adapter_Profile_Court;
 import com.example.courtpool.utils.FBManager;
@@ -37,23 +43,28 @@ import java.util.Map;
 
 public class ProfileFragment extends Fragment {
 
-    private ImageView fragment_profile_IMG_profilePic;
-    private TextView fragment_profile_LBL_name;
-    private TextView fragment_profile_LBL_number;
-    private TextView fragment_profile_LBL_email;
-    private TextView fragment_profile_LBL_skill;
-    private TextView fragment_profile_LBL_changeHours;
-    private Spinner fragment_profile_LST_courtType;
-    private Spinner fragment_profile_LST_days;
-    private RecyclerView fragment_profile_LST_courts;
+    private ImageView fragment_profile_IMG_profilePic,
+            fragment_profile_IMG_editSkill,
+            fragment_profile_IMG_editType,
+            fragment_profile_IMG_editTime,
+            fragment_profile_IMG_editCourts;
 
-    private ArrayList<String> hours;
-    private ArrayList<String> days_strings;
-    private ArrayList<String> courts_strings;
+    private TextView fragment_profile_LBL_name,
+            fragment_profile_LBL_number,
+            fragment_profile_LBL_email,
+            fragment_profile_LBL_skill,
+            fragment_profile_LBL_changeHours;
+
+    private Spinner fragment_profile_LST_courtType, fragment_profile_LST_days;
+    private RecyclerView fragment_profile_LST_courts;
+    private AppCompatButton fragment_profile_BTN_editPersonal;
+
+    private ArrayList<String> hours, days_strings, courts_strings;
     private Map<String, ArrayList<String>> playTimeMap;
 
     private View view;
     private FBManager fbManager;
+    private boolean isEdit = false;
 
 
     @Nullable
@@ -81,15 +92,55 @@ public class ProfileFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.action_bar_edit) {
-            new MaterialAlertDialogBuilder(view.getContext())
-                    .setTitle("Edit Profile")
-                    .setMessage("Do you wish to edit your profile?")
-                    .setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                        //TODO: ADD FUNCTIONALITY FOR EDIT PROFILE
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
 
+            if (!isEdit) {
+                fragment_profile_IMG_editSkill.setVisibility(View.VISIBLE);
+                fragment_profile_IMG_editType.setVisibility(View.VISIBLE);
+                fragment_profile_IMG_editTime.setVisibility(View.VISIBLE);
+                fragment_profile_IMG_editCourts.setVisibility(View.VISIBLE);
+                fragment_profile_BTN_editPersonal.setVisibility(View.VISIBLE);
+                isEdit = true;
+            } else {
+                fragment_profile_IMG_editSkill.setVisibility(View.INVISIBLE);
+                fragment_profile_IMG_editType.setVisibility(View.INVISIBLE);
+                fragment_profile_IMG_editTime.setVisibility(View.INVISIBLE);
+                fragment_profile_IMG_editCourts.setVisibility(View.INVISIBLE);
+                fragment_profile_BTN_editPersonal.setVisibility(View.INVISIBLE);
+                isEdit = false;
+            }
+            fragment_profile_IMG_editSkill.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), SkillActivity.class);
+                intent.putExtra("edit", 1);
+                startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+            });
+
+            fragment_profile_IMG_editType.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), CourtTypeActivity.class);
+                intent.putExtra("edit", 1);
+                startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+            });
+
+            fragment_profile_IMG_editTime.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), DayAndTimeActivity.class);
+                intent.putExtra("edit", 1);
+                startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+            });
+
+            fragment_profile_IMG_editCourts.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), ChooseLocationActivity.class);
+                intent.putExtra("edit", 1);
+                startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+            });
+
+            fragment_profile_BTN_editPersonal.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), PersonalEditActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+            });
 
         } else if (item.getItemId() == R.id.action_bar_logout) {
             new MaterialAlertDialogBuilder(view.getContext())
@@ -99,6 +150,7 @@ public class ProfileFragment extends Fragment {
                         fbManager.getFirebaseAuth().signOut();
                         Intent intent = new Intent(getActivity(), SignInActivity.class);
                         startActivity(intent);
+                        getActivity().finish();
                         getActivity().overridePendingTransition(0, 0);
                     })
                     .setNegativeButton("No", null)
@@ -118,6 +170,11 @@ public class ProfileFragment extends Fragment {
         fragment_profile_LST_courts = view.findViewById(R.id.fragment_profile_LST_courts);
         fragment_profile_LBL_changeHours = view.findViewById(R.id.fragment_profile_LBL_changeHours);
         fragment_profile_LST_days = view.findViewById(R.id.fragment_profile_LST_days);
+        fragment_profile_IMG_editSkill = view.findViewById(R.id.fragment_profile_IMG_editSkill);
+        fragment_profile_IMG_editType = view.findViewById(R.id.fragment_profile_IMG_editType);
+        fragment_profile_IMG_editTime = view.findViewById(R.id.fragment_profile_IMG_editTime);
+        fragment_profile_IMG_editCourts = view.findViewById(R.id.fragment_profile_IMG_editCourts);
+        fragment_profile_BTN_editPersonal = view.findViewById(R.id.fragment_profile_BTN_editPersonal);
     }
 
     private void retrieveData() {

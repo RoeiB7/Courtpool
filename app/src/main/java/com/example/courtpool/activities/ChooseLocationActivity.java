@@ -1,5 +1,6 @@
 package com.example.courtpool.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -37,6 +38,7 @@ public class ChooseLocationActivity extends AppCompatActivity {
     private Adapter_Court adapter_court;
     private FBManager fbManager;
     private String selectedCity;
+    private int editValue;
 
 
     @Override
@@ -47,6 +49,14 @@ public class ChooseLocationActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findChooseLocationViews(this);
         fbManager = new FBManager();
+        Intent intent = this.getIntent();
+        editValue = intent.getIntExtra("edit", -1);
+
+        TextView courtType = manager.getChoose_location_LBL_court();
+
+        if (editValue == 1) {
+            courtType.setText("Finish editing");
+        }
 
         autoCompleteTextView = manager.getChoose_location_ACLBL_enterCity();
         choose_location_LST_courtsLocations = manager.getChoose_location_LST_courtsLocations();
@@ -126,14 +136,17 @@ public class ChooseLocationActivity extends AppCompatActivity {
             }
         });
 
-        TextView courtType = manager.getChoose_location_LBL_court();
         courtType.setOnClickListener(v -> {
             if (!checkedCourts.isEmpty()) {
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
                 documentReference.update(FBManager.KEY_LOCATION, checkedCourts)
                         .addOnSuccessListener(aVoid -> {
                             Log.d(AppManager.TAG, "user updated - location");
-                            manager.moveToCourtType(this);
+                            if (editValue == 1) {
+                                manager.moveToNav(this);
+                            } else {
+                                manager.moveToCourtType(this);
+                            }
                         })
 
                         .addOnFailureListener(e -> {

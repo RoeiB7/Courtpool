@@ -2,6 +2,7 @@ package com.example.courtpool.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ public class SkillActivity extends AppCompatActivity {
 
     private AppManager manager;
     private FBManager fbManager;
+    private int editValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,14 @@ public class SkillActivity extends AppCompatActivity {
         manager.findSkillViews(this);
         manager.setTennisAlpha();
 
+        Intent intent = this.getIntent();
+        editValue = intent.getIntExtra("edit", -1);
+
+        TextView moveToTime = manager.getSkill_LBL_when_playing();
+
+        if (editValue == 1) {
+            moveToTime.setText("Finish editing");
+        }
         fbManager = new FBManager();
 
         ImageView levelOne = manager.getSkill_IMG_level_one();
@@ -38,14 +48,19 @@ public class SkillActivity extends AppCompatActivity {
         ImageView levelThree = manager.getSkill_IMG_level_three();
         levelThree.setOnClickListener(v -> manager.isSkillSelected(3));
 
-        TextView moveToTime = manager.getSkill_LBL_when_playing();
+
         moveToTime.setOnClickListener(v -> {
             if (manager.checkImageAlpha().length() != 0) {
                 DocumentReference documentReference = fbManager.getFirebaseFirestore().collection("users").document(fbManager.getUserID());
                 documentReference.update(FBManager.KEY_SKILL, manager.checkImageAlpha())
                         .addOnSuccessListener(aVoid -> {
                             Log.d(AppManager.TAG, "user updated - skill");
-                            manager.moveToDayAndTime(this);
+
+                            if (editValue == 1) {
+                                manager.moveToNav(this);
+                            } else {
+                                manager.moveToDayAndTime(this);
+                            }
                         })
 
                         .addOnFailureListener(e -> {

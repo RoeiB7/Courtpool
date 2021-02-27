@@ -19,7 +19,7 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter_Matches extends RecyclerView.Adapter<Adapter_Matches.MyViewHolder> {
+public class Adapter_Players extends RecyclerView.Adapter<Adapter_Players.MyViewHolder> {
 
 
     private List<User> users;
@@ -28,7 +28,7 @@ public class Adapter_Matches extends RecyclerView.Adapter<Adapter_Matches.MyView
     private ItemLongClickListener mItemLongClickListener;
 
     // _courts is passed into the constructor
-    public Adapter_Matches(Context context, List<User> _users) {
+    public Adapter_Players(Context context, List<User> _users) {
         this.mInflater = LayoutInflater.from(context);
         this.users = _users;
     }
@@ -50,18 +50,18 @@ public class Adapter_Matches extends RecyclerView.Adapter<Adapter_Matches.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         User user = users.get(position);
         if (user.getProfileImage().equals("N/A")) {
-            Glide.with(mInflater.getContext()).load(R.drawable.ic_user).apply(RequestOptions.circleCropTransform()).into(holder.fragment_matches_IMG_image);
+            Glide.with(mInflater.getContext()).load(R.drawable.ic_user).apply(RequestOptions.circleCropTransform()).into(holder.player_IMG_image);
         } else {
-            Glide.with(mInflater.getContext()).load(user.getProfileImage()).apply(RequestOptions.circleCropTransform()).into(holder.fragment_matches_IMG_image);
+            Glide.with(mInflater.getContext()).load(user.getProfileImage()).apply(RequestOptions.circleCropTransform()).into(holder.player_IMG_image);
         }
-        holder.fragment_matches_LBL_name.setText(user.getName());
+        holder.player_LBL_name.setText(user.getName());
 
         ArrayList<String> courts = user.getCourtLocation();
         StringBuilder court_name = new StringBuilder();
         for (int i = 0; i < courts.size(); i = i + 2) {
             court_name.append(courts.get(i)).append("\n");
         }
-        holder.fragment_matches_LBL_courts.setText(court_name);
+        holder.player_LBL_courts.setText(court_name);
     }
 
     // total number of rows
@@ -98,15 +98,15 @@ public class Adapter_Matches extends RecyclerView.Adapter<Adapter_Matches.MyView
     // stores and recycles views as they are scrolled off screen
     public class MyViewHolder extends ViewHolder {
 
-        ImageView fragment_matches_IMG_image;
-        TextView fragment_matches_LBL_name;
-        MaterialTextView fragment_matches_LBL_courts;
+        ImageView player_IMG_image;
+        TextView player_LBL_name;
+        MaterialTextView player_LBL_courts;
 
         MyViewHolder(View itemView) {
             super(itemView);
-            fragment_matches_IMG_image = itemView.findViewById(R.id.fragment_matches_IMG_image);
-            fragment_matches_LBL_name = itemView.findViewById(R.id.fragment_matches_LBL_name);
-            fragment_matches_LBL_courts = itemView.findViewById(R.id.fragment_matches_LBL_courts);
+            player_IMG_image = itemView.findViewById(R.id.player_IMG_image);
+            player_LBL_name = itemView.findViewById(R.id.player_LBL_name);
+            player_LBL_courts = itemView.findViewById(R.id.player_LBL_courts);
 
             itemView.setOnLongClickListener(v -> {
                 if (mItemLongClickListener != null) {

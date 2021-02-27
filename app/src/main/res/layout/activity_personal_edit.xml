@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".activities.PersonalEditActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/personal_edit_IMG_addProfilePic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:foreground="@drawable/rounded_fg"
+                android:src="@drawable/ic_user" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/personal_edit_BTN_uploadImage"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/great_blue"
+                android:drawableStart="@drawable/ic_cloud"
+                android:drawablePadding="10dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/upload_image"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.3"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="36dp"
+                android:hint="@string/name"
+                app:boxStrokeColor="@color/great_blue"
+                app:hintTextColor="@color/great_blue">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/personal_edit_EDT_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="36dp"
+                android:hint="@string/phone_number"
+                app:boxStrokeColor="@color/great_blue"
+                app:hintTextColor="@color/great_blue">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/personal_edit_EDT_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/personal_edit_LBL_finish"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="72dp"
+                android:background="@color/great_blue"
+                android:gravity="center"
+                android:text="Finish editing "
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:drawableEndCompat="@drawable/arrow" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

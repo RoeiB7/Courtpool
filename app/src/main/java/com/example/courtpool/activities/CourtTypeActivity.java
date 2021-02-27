@@ -2,6 +2,7 @@ package com.example.courtpool.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -22,6 +23,9 @@ public class CourtTypeActivity extends AppCompatActivity {
 
     private AppManager manager;
     private FBManager fbManager;
+    private TextView moveToSkills;
+    private int editValue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,15 @@ public class CourtTypeActivity extends AppCompatActivity {
 
         manager = new AppManager(this);
         manager.findCourtTypeViews(this);
+
+        Intent intent = this.getIntent();
+        editValue = intent.getIntExtra("edit", -1);
+
+        moveToSkills = manager.getCourt_type_LBL_skill();
+
+        if (editValue == 1) {
+            moveToSkills.setText("Finish editing");
+        }
         fbManager = new FBManager();
 
         initViews();
@@ -50,7 +63,6 @@ public class CourtTypeActivity extends AppCompatActivity {
         ImageView clay = manager.getCourt_type_IMG_clay();
         clay.setOnClickListener(v -> manager.checkMarkOn(AppManager.CLAY));
 
-        TextView moveToSkills = manager.getCourt_type_LBL_skill();
         moveToSkills.setOnClickListener(v -> {
             ArrayList<String> courtType = manager.checkMarkVisibility();
             if (!courtType.isEmpty()) {
@@ -58,7 +70,12 @@ public class CourtTypeActivity extends AppCompatActivity {
                 documentReference.update(FBManager.KEY_TYPE, courtType)
                         .addOnSuccessListener(aVoid -> {
                             Log.d(AppManager.TAG, "user updated - court type");
-                            manager.moveToSkill(this);
+
+                            if (editValue == 1) {
+                                manager.moveToNav(this);
+                            } else {
+                                manager.moveToSkill(this);
+                            }
                         })
 
                         .addOnFailureListener(e -> {

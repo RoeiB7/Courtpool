@@ -14,15 +14,16 @@ public class FBManager {
     private final StorageReference storageReference;
 
 
-    public static final String KEY_NAME = "fullName";
+    public static final String KEY_NAME = "name";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PASSWORD = "password";
-    public static final String KEY_PHONE = "phoneNumber";
+    public static final String KEY_PHONE = "phone";
     public static final String KEY_LOCATION = "courtLocation";
-    public static final String KEY_TYPE = "courtType";
+    public static final String KEY_TYPE = "courtTypes";
     public static final String KEY_TIME = "playTime";
     public static final String KEY_SKILL = "skill";
-    public static final String KEY_IMAGE = "profilePic";
+    public static final String KEY_IMAGE = "profileImage";
+    public static final String KEY_CONTACTS = "contacts";
 
     public FBManager() {
         firebaseAuth = FirebaseAuth.getInstance();

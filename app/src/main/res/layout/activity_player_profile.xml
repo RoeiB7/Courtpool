@@ -10,8 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <ImageView
-            android:id="@+id/fragment_profile_IMG_profilePic"
+            android:id="@+id/player_fragment_IMG_backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:src="@drawable/ic_back_arrow" />
+
+        <ImageView
+            android:id="@+id/player_profile_IMG_profilePic"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_centerHorizontal="true"
@@ -19,10 +27,10 @@
             android:foreground="@drawable/rounded_fg" />
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_name"
+            android:id="@+id/player_profile_LBL_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_profile_IMG_profilePic"
+            android:layout_below="@+id/player_profile_IMG_profilePic"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:textColor="@color/black"
@@ -30,71 +38,41 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_number"
+            android:id="@+id/player_profile_LBL_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_profile_LBL_name"
+            android:layout_below="@+id/player_profile_LBL_name"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_email"
+            android:id="@+id/player_profile_LBL_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_profile_LBL_number"
+            android:layout_below="@+id/player_profile_LBL_number"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/fragment_profile_BTN_editPersonal"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_below="@id/fragment_profile_LBL_email"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_button"
-            android:backgroundTint="@color/great_blue"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:text="Edit personal info"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:visibility="invisible" />
-
         <TextView
-            android:id="@+id/fragment_profile_LBL_preferences"
+            android:id="@+id/player_profile_LBL_preferences"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_BTN_editPersonal"
+            android:layout_below="@id/player_profile_LBL_email"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:text="Preferences:"
             android:textColor="@color/black"
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/fragment_profile_IMG_editSkill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_preferences"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_edit"
-            android:visibility="invisible" />
-
-
         <TextView
-            android:id="@+id/fragment_profile_LBL_playerLevel"
+            android:id="@+id/player_profile_LBL_playerLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_preferences"
+            android:layout_below="@id/player_profile_LBL_preferences"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Player level :"
@@ -103,21 +81,21 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_skill"
+            android:id="@+id/player_profile_LBL_skill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_preferences"
+            android:layout_below="@id/player_profile_LBL_preferences"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_toEndOf="@+id/fragment_profile_LBL_playerLevel"
+            android:layout_toEndOf="@+id/player_profile_LBL_playerLevel"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_courtType"
+            android:id="@+id/player_profile_LBL_courtType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_playerLevel"
+            android:layout_below="@id/player_profile_LBL_playerLevel"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Court types :"
@@ -126,31 +104,20 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/fragment_profile_LST_courtType"
+            android:id="@+id/player_profile_LST_courtType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_profile_LBL_skill"
+            android:layout_below="@+id/player_profile_LBL_skill"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_toEndOf="@id/fragment_profile_LBL_courtType" />
-
-        <ImageView
-            android:id="@+id/fragment_profile_IMG_editType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_IMG_editSkill"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_edit"
-            android:visibility="invisible" />
+            android:layout_toEndOf="@id/player_profile_LBL_courtType" />
 
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_time"
+            android:id="@+id/player_profile_LBL_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_courtType"
+            android:layout_below="@id/player_profile_LBL_courtType"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Days :"
@@ -159,31 +126,19 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/fragment_profile_LST_days"
+            android:id="@+id/player_profile_LST_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_profile_LBL_courtType"
+            android:layout_below="@+id/player_profile_LBL_courtType"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_toEndOf="@id/fragment_profile_LBL_time" />
-
-        <ImageView
-            android:id="@+id/fragment_profile_IMG_editTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_IMG_editType"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_edit"
-            android:visibility="invisible" />
-
+            android:layout_toEndOf="@id/player_profile_LBL_time" />
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_hours"
+            android:id="@+id/player_profile_LBL_hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_time"
+            android:layout_below="@id/player_profile_LBL_time"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
@@ -194,33 +149,22 @@
 
 
         <TextView
-            android:id="@+id/fragment_profile_LBL_changeHours"
-            android:layout_width="wrap_content"
+            android:id="@+id/player_profile_LBL_changeHours"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_profile_LBL_time"
+            android:layout_below="@+id/player_profile_LBL_time"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
-            android:layout_toEndOf="@+id/fragment_profile_LBL_hours"
+            android:layout_toEndOf="@+id/player_profile_LBL_hours"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/fragment_profile_IMG_editCourts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_IMG_editTime"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_edit"
-            android:visibility="invisible" />
-
         <TextView
-            android:id="@+id/fragment_profile_LBL_courts"
+            android:id="@+id/player_profile_LBL_courts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_profile_LBL_hours"
+            android:layout_below="@id/player_profile_LBL_hours"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:text="Courts :"
@@ -229,10 +173,10 @@
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragment_profile_LST_courts"
+            android:id="@+id/player_profile_LST_courts"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:layout_below="@id/fragment_profile_LBL_courts"
+            android:layout_below="@id/player_profile_LBL_courts"
             android:layout_marginStart="24dp"
             android:clickable="false" />
 

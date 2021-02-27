@@ -3,6 +3,7 @@ package com.example.courtpool.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
@@ -24,6 +25,7 @@ public class DayAndTimeActivity extends AppCompatActivity {
 
     private AppManager manager;
     private FBManager fbManager;
+    private int editValue;
 
 
     @Override
@@ -34,6 +36,15 @@ public class DayAndTimeActivity extends AppCompatActivity {
         manager = new AppManager(this);
         manager.findDayAndTimeViews(this);
         manager.setBallAlpha();
+
+        Intent intent = this.getIntent();
+        editValue = intent.getIntExtra("edit", -1);
+
+        TextView moveToMatches = manager.getDay_and_time_LBL_find();
+
+        if (editValue == 1) {
+            moveToMatches.setText("Finish editing");
+        }
 
         fbManager = new FBManager();
 
@@ -101,7 +112,6 @@ public class DayAndTimeActivity extends AppCompatActivity {
         LinearLayout eveningSaturday = manager.getDay_and_time_LAY_saturday_evening();
         eveningSaturday.setOnClickListener(v -> manager.selectDay(21));
 
-        TextView moveToMatches = manager.getDay_and_time_LBL_find();
         moveToMatches.setOnClickListener(v -> {
 
             if (manager.checkDaySelected()) {

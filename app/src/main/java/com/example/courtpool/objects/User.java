@@ -1,11 +1,13 @@
 package com.example.courtpool.objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User {
+public class User implements Serializable {
 
+    private String id;
     private String name;
     private String email;
     private String password;
@@ -21,9 +23,10 @@ public class User {
 
     }
 
-    public User(String name, String email, String password, String phone, ArrayList<String> courtLocation,
+    public User(String id, String name, String email, String password, String phone, ArrayList<String> courtLocation,
                 ArrayList<String> courtTypes, String skill, Map<String, ArrayList<String>> playTime, String profileImage) {
 
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -35,6 +38,14 @@ public class User {
         this.profileImage = profileImage;
     }
 
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -106,5 +117,21 @@ public class User {
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", courtLocation=" + courtLocation +
+                ", courtTypes=" + courtTypes +
+                ", skill='" + skill + '\'' +
+                ", playTime=" + playTime +
+                ", profileImage='" + profileImage + '\'' +
+                '}';
     }
 }
