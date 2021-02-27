@@ -150,6 +150,19 @@ public class Courts_Creator {
                 Arrays.asList(
                         "Tennis Center Ra'anana", "Yair St 3, Ra'anana, Irsael"
                 ));
+        city.put("YEHUD-MONOSON",
+                Arrays.asList(
+                        "Tennis Club Yehud", "Nordau St 5, Yehud, Irsael",
+                        "Sportek Yehud-Monoson", "Derech Moshe Dayan 3, Yehud-Monoson, Israel"
+                ));
+        city.put("NAHARIYYA",
+                Arrays.asList(
+                        "Country Club Nahariyya", "HaMa'apilim St 5, Nahariyya, Irsael"
+                ));
+        city.put("GIV'AT SHEMU'EL",
+                Arrays.asList(
+                        "Matnas Giva'at Shemu'el", "Nachum St 1, Giva'at Shemu'el, Irsael"
+                ));
 
 
         fbManager.getFirebaseFirestore().collection("cities").document("city")
