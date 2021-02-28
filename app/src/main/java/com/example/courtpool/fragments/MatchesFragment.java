@@ -65,6 +65,8 @@ public class MatchesFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
 
+                            matched_locations.clear();
+
                             if (!document.getId().equals(fbManager.getUserID())) {
                                 String id = document.getId();
                                 String name = document.getString(FBManager.KEY_NAME);
@@ -82,22 +84,16 @@ public class MatchesFragment extends Fragment {
                                     }
                                 }
 
-
                                 if (!matched_locations.isEmpty()) {
                                     ArrayList<String> types = (ArrayList<String>) document.getData().get(FBManager.KEY_TYPE);
                                     Map<String, ArrayList<String>> time = (Map<String, ArrayList<String>>) document.getData().get(FBManager.KEY_TIME);
-
-
-                                    User user = new User(id, name, email, password, phone, matched_locations, types, skill, time, image);
-
+                                    ArrayList<String> lst = new ArrayList<>(matched_locations);
+                                    User user = new User(id, name, email, password, phone, lst, types, skill, time, image);
                                     matched_players.add(user);
                                 }
                             }
-
                         }
-
                         Adapter_Players adapter_players = new Adapter_Players(view.getContext(), matched_players);
-
 
                         adapter_players.setClickListener((view, position) -> {
                             Intent intent = new Intent(getActivity(), PlayerProfileActivity.class);

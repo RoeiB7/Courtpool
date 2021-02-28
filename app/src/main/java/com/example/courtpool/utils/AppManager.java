@@ -257,15 +257,13 @@ public class AppManager {
     public void moveToSignUp(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignUpActivity.class);
         activity.startActivity(intent);
-        activity.overridePendingTransition(0, 0);
-
+        activity.finish();
     }
 
     public void moveToSignIn(AppCompatActivity activity) {
         Intent intent = new Intent(activity, SignInActivity.class);
         activity.startActivity(intent);
         activity.overridePendingTransition(0, 0);
-        activity.finish();
     }
 
     public void moveToChooseLocation(AppCompatActivity activity) {
@@ -348,8 +346,6 @@ public class AppManager {
             return 5;
         }
     }
-
-
 
 
     public void checkMarkOn(String checkMark) {
