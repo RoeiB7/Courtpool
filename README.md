@@ -51,8 +51,9 @@ In your profile page, you will be able to edit your profile by pressing the uppe
 In the matches page, you will be able to see the full information of each player by clicking once on the player tab,\
 Or adding this player to your contacts by long clicking on his/her tab.
 
-
-
+<p align="center">
+  <img src="./readme_assets/matches.gif" width="25%">
+</p>
 
 
 ## Technologies
