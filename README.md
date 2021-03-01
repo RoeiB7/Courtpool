@@ -25,9 +25,12 @@ Just create your tennis profile and the app will match you the best players for 
 
 
 ## Technologies
-Project is created with:
+<b>Project is created with:</b>
 * Java
 * Firebase version: 26.4.0
+
+## Compatibility
+<b>Minimum Android SDK:</b> Courtpool requires a minimum API level of 27.
 
 ## Future scope
 
