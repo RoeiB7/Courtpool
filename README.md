@@ -26,7 +26,6 @@ I used Firebase for authentication, database and storage.\
 Just create your tennis profile and the app will match you the best players for you.
 
 ## How to use
-byhuvgucgujc
 
 
 
