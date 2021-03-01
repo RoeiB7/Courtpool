@@ -21,7 +21,7 @@
 ## Description
 Courtpool app is a tennis players match maker fully built on Android Studio with Java.\
 I used Firebase for authentication, database and storage.\
-This app will simply match you your next tennis patner, Just create your tennis profile and you are good to go!
+Just create your tennis profile and the app will match you the best players for you.
 
 
 ## Technologies
