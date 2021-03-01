@@ -16,8 +16,9 @@
 ## Table of contents
 * [Description](#description)
 * [Technologies](#technologies)
+* [Compatibility](#compatibility)
 * [Future scope](#future-scope)
-* [Technologies](#technologies)
+
 
 ## Description
 Courtpool app is a tennis players match maker fully built on Android Studio with Java.\
