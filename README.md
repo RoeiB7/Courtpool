@@ -23,3 +23,7 @@ Project is created with:
 * Firebase version: 26.4.0
 * Glide version: 4.12.0
 * Gson version: 2.8.6
+
+## Future scope
+
+- Add live chat.
