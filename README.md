@@ -12,6 +12,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [Future scope](#future-scope)
 
 ## General info
 This app will simply match you your next tennis patner,
