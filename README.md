@@ -67,3 +67,10 @@ Or adding this player to your contacts by long clicking on his/her tab.
 ## Future scope
 
 - Add live chat.
+
+## Meta
+
+Roei Berko – barkan.roei@gmail.com
+
+
+[https://github.com/RoeiB7/github-link](https://github.com/RoeiB7/)
