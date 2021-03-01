@@ -6,7 +6,9 @@
   <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
 </p>
 
+<p align="center">
 <img src="./readme_assets/h1.png" width="50%">
+</p>
 
 ## Table of contents
 * [General info](#general-info)
