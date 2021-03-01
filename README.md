@@ -36,6 +36,11 @@ What is your skill level and finally what days and hours you usually play.
 
 
 After creating your user, you will enter the main page of the app, where you can see your profile page, matches and your contacts.
+
+<p align="center">
+  <img src="./readme_assets/main.gif" width="25%">
+</p>
+
 In your profile page, you will be able to edit your profile by pressing the upper right edit icon or log out with the log out icon.\
 In the matches page, you will be able to see the full information of each player by clicking once on the player tab,\
 Or adding this player to your contacts by long clicking on his/her tab.
