@@ -6,7 +6,7 @@
   <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" >
 </p>
 
-<img src="./readme_assets/tennis_ball_courtpool.png" width="100%">
+<img src="./readme_assets/h1.png" width="50%">
 
 ## Table of contents
 * [General info](#general-info)
