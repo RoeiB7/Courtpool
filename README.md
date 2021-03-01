@@ -26,7 +26,13 @@ I used Firebase for authentication, database and storage.\
 Just create your tennis profile and the app will match you the best players for you.
 
 ## How to use
-
+For the first time, you will need to create a new user, to do that click on GET STARTED button.\
+First, you will need to enter your personal info (e.g. - full name, email)\
+Next, you will be asked to choose a courts you like to play at, which type of courts you prefer to play on,\
+what is your skill level and finally what days and hours you usually play. 
+<p align="center">
+  <img src="./readme_assets/signup.gif" width="25%">
+  </p>
 
 
 ## Technologies
