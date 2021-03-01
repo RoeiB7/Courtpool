@@ -15,8 +15,10 @@
 * [Future scope](#future-scope)
 
 ## Description
-This app will simply match you your next tennis patner,
-Just create your tennis profile and you are good to go!
+Courtpool app is a tennis players match maker fully built on Android Studio with Java.\
+I used Firebase for authentication, database and storage.\
+This app will simply match you your next tennis patner, Just create your tennis profile and you are good to go!
+
 
 ## Technologies
 Project is created with:
