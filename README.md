@@ -1,14 +1,12 @@
-<h1 align="center">Courtpool</h1>
+<p align="center">
+<img src="./readme_assets/courtpool_splash.png" width="50%">
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/made%20by-roeib7-blue">
   <img src="https://img.shields.io/badge/Java-100%25-brightgreen">
   <img src="https://img.shields.io/badge/android%20studio-4.2-green">
   <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
-</p>
-
-<p align="center">
-<img src="./readme_assets/courtpool_splash.png" width="50%">
 </p>
 
 ## Table of contents
