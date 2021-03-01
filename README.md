@@ -32,7 +32,7 @@ For the first time, you will need to create a new user, to do that click on the 
 First, you will need to enter your personal information (e.g. - full name, email)\
 Next, you will be asked to choose your courts locations, court types, skill level, and finally what days and hours you typically play. 
 <p align="center">
-  <img src="./readme_assets/signup.gif" width="25%">
+  <img src="./readme_assets/create.gif" width="25%">
 </p>
 
 
