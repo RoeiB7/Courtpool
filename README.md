@@ -41,7 +41,7 @@ After creating your user, you will enter the main page of the app, where you can
   <img src="./readme_assets/main.gif" width="25%">
 </p>
 
-In your profile page, you will be able to edit your profile by pressing the upper right edit icon or log out with the log out icon.\
+In your profile page, you will be able to edit your profile by pressing the upper right edit icon or log out with the log out icon.
 
 <p align="center">
   <img src="./readme_assets/edit.gif" width="25%">
