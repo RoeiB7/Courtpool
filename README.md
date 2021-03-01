@@ -1,3 +1,7 @@
+<p>
+<h1 align="center"> Courtpool</h1>
+</p>
+
 <p align="center">
 <img src="./readme_assets/courtpool_splash.png" width="45%">
 </p>
@@ -24,8 +28,6 @@ This app will simply match you your next tennis patner, Just create your tennis 
 Project is created with:
 * Java
 * Firebase version: 26.4.0
-* Glide version: 4.12.0
-* Gson version: 2.8.6
 
 ## Future scope
 
