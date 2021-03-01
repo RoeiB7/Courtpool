@@ -10,11 +10,11 @@
 </p>
 
 ## Table of contents
-* [General info](#general-info)
+* [Description](#description)
 * [Technologies](#technologies)
 * [Future scope](#future-scope)
 
-## General info
+## Description
 This app will simply match you your next tennis patner,
 Just create your tennis profile and you are good to go!
 
