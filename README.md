@@ -1,6 +1,9 @@
 <p align="center">
-<img src="./readme_assets/courtpool_splash.png" width="50%">
+<img src="./readme_assets/courtpool_splash.png" width="45%">
 </p>
+
+<h2 align="center">Meet your next tennis partner</h2>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/made%20by-roeib7-blue">
