@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-<img src="./readme_assets/h1.png" width="50%">
+<img src="./readme_assets/courtpool_splash.png" width="50%">
 </p>
 
 ## Table of contents
